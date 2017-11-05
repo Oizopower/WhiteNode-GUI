@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.hg
+.idea
+.sass-cache
+.svn
+
+_notes
+assets/bower_components
+logs
+cgi-bin
+Thumbs.db
+
+settings.ini
