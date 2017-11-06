@@ -34,7 +34,7 @@ switch($action)
         exit;
     break;
     case "shutdown":
-        exec('sudo shutdown');
+        exec('sudo halt');
         exit;
     break;
     case "download":
