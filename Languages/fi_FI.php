@@ -19,6 +19,10 @@ $language = array(
     "encrypt-wallet"                                                        => "Salaa lompakko",
     "unlock-wallet-for-staking"                                             => "Avaa lompakko osakkuutta varten",
     "unlock-for-staking"                                                    => "Avaa lompakko osakkuuksille",
+    "download-wallet"                                                       => "Download Wallet",                       // untranslated
+    "system"                                                                => "System",                                // untranslated
+    "reboot"                                                                => "Reboot",                                // untranslated
+    "shutdown"                                                              => "shutdown",                              // untranslated
 
     // Footer
     "whitecoin"                                                             => "Whitecoin",

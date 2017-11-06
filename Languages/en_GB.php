@@ -19,6 +19,10 @@ $language = array(
     "encrypt-wallet"                                                        => "Encrypt wallet",
     "unlock-wallet-for-staking"                                             => "Unlock wallet for staking",
     "unlock-for-staking"                                                    => "Unlock for staking",
+    "download-wallet"                                                       => "Download Wallet",
+    "system"                                                                => "System",
+    "reboot"                                                                => "Reboot",
+    "shutdown"                                                              => "shutdown",
 
     // Footer
     "whitecoin"                                                             => "Whitecoin",

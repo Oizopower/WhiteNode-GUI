@@ -8,24 +8,24 @@
         <li>
             <a href="/Operators/Action.php?action=download">
                 <i class="fa fa-hdd-o"></i>
-                <p>Download Wallet</p>
+                <p><?=tl("Download Wallet")?></p>
             </a>
         </li>
         <li>
             <a>
-            &nbsp;<p>System</p>
+            &nbsp;<p><?=tl("System")?></p>
             </a>
         </li>
         <li>
             <a href="#" id="js--reboot">
                 <i class="fa fa-refresh icon-warning"></i>
-                <p>Reboot</p>
+                <p><?=tl("Reboot")?></p>
             </a>
         </li>
         <li>
             <a href="#" id="js--shutdown">
                 <i class="fa fa-power-off icon-danger"></i>
-                <p>Shutdown</p>
+                <p><?=tl("Shutdown")?></p>
             </a>
         </li>
         <?php

@@ -19,6 +19,10 @@ $language = array(
     "encrypt-wallet"                                                        => "Versleutel portemonnee",
     "unlock-wallet-for-staking"                                             => "Ontgrendel portemonnee om te staken",
     "unlock-for-staking"                                                    => "Ontgrenden om te staken",
+    "download-wallet"                                                       => "Download portemonnee",
+    "system"                                                                => "Systeem",
+    "reboot"                                                                => "Herstarten",
+    "shutdown"                                                              => "Afsluiten",
 
     // Footer
     "whitecoin"                                                             => "Whitecoin",
