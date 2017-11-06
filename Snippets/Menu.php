@@ -18,9 +18,11 @@
         </li>
         <li>
             <a href="#" id="js--reboot">
-                <i class="fa fa-refresh icon-danger"></i>
+                <i class="fa fa-refresh icon-warning"></i>
                 <p>Reboot</p>
             </a>
+        </li>
+        <li>
             <a href="#" id="js--shutdown">
                 <i class="fa fa-power-off icon-danger"></i>
                 <p>Shutdown</p>
