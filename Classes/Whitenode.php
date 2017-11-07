@@ -8,6 +8,8 @@ class Whitenode
     static public $db;
     static public $lang;
     static public $currentPage;
+    static public $newCoinsYear = 1051200;
+
 
     static public function init()
     {

@@ -19,14 +19,11 @@
         }
     }
 
-    $coinmarketcap      = Exchange::getCoinMarketCap();
-    if($staking['netstakeweight'] > 0) {
-        $calculateInterest  = floor($coinmarketcap['available_supply'])/floor(floor($staking['netstakeweight'])/100000000);
-    } else {
-        $calculateInterest = 0;
-    }
+    $stakingWeight      = floor($staking['weight'])/100000000;
+    $netStakeWeight     = floor($staking['netstakeweight'])/100000000;
 
-    $newamountInterest  = ((floor($info['balance'])/100)*$calculateInterest)+$info['balance'];
+    $calculateInterest  = ($staking['netstakeweight'] > 0) ? (Whitenode::$newCoinsYear/$netStakeWeight)*100 : 0;
+    $newamountInterest  = ($stakingWeight * ($calculateInterest/100))+$stakingWeight;
 
 //    $unlockedUntill = date("Y-m-d H:i:s",(int)number_format($info['unlocked_until'],0,'',''));
 ?>
