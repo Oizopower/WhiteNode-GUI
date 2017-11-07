@@ -39,9 +39,11 @@ switch($action)
         exit;
     break;
     case "update":
-	    exec("cd /var/www/public && git pull");
-	    header("Location: /");
-	    exit;
+        $return = shell_exec("cd /var/www/public && /usr/bin/git pull  2>&1");
+        if($return) {
+            header("Location: /");
+            exit;
+        }
     break;
     case "download":
         header("Content-Type: application/octet-stream");
