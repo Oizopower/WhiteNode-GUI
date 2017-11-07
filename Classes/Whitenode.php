@@ -189,10 +189,6 @@ class Whitenode
 
         foreach ($array as $key => $val)
         {
-//            if($key == "app_enable_login") {
-//                $val = 1;
-//            }
-
             if (is_array($val))
             {
                 $res[] = "[$key]";
