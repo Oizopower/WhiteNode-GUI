@@ -2,7 +2,8 @@
 $action = addslashes($_REQUEST['action']);
 
 $ajaxExemption = array(
-    "download"
+    "download",
+    "update"
 );
 
 if(!in_array($action, $ajaxExemption))
@@ -34,8 +35,13 @@ switch($action)
         exit;
     break;
     case "shutdown":
-        exec('sudo halt');
+	    exec('sudo halt');
         exit;
+    break;
+    case "update":
+	    exec("cd /var/www/public && git pull");
+	    header("Location: /");
+	    exit;
     break;
     case "download":
         header("Content-Type: application/octet-stream");

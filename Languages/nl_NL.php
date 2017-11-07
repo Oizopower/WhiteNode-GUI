@@ -23,6 +23,7 @@ $language = array(
     "system"                                                                => "Systeem",
     "reboot"                                                                => "Herstarten",
     "shutdown"                                                              => "Afsluiten",
+    "update-gui"                                                            => "Update GUI",
 
     // Footer
     "whitecoin"                                                             => "Whitecoin",

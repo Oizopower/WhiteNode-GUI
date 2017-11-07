@@ -112,6 +112,8 @@ class Whitenode
         } else {
             $language = $locale;
         }
+        $language = "en_GB";
+
         return $language;
     }
 
