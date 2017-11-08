@@ -14,7 +14,11 @@ class Exchange extends Whitenode {
 
         $info = self::$clientd->getinfo();
 
-        $balance = (int) $info['balance'];
+        $balance = 0;
+        if(isset($info['balance'])) {
+            $balance = (int) $info['balance'];
+        }
+
 
         if(isset($info['stake']) && (int) $info['stake'] > 0) {
             $balance = $balance + $info['stake'];

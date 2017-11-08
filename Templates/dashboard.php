@@ -157,7 +157,7 @@
                                 <p><?=tl("Balance")?></p>
                                 <?=Whitenode::$clientd->getbalance();?> XWC
                                 <?php
-                                    if($info['stake'] > 0) {
+                                    if(isset($info['stake']) && $info['stake'] > 0) {
                                         ?><p><?=tl("Staking")?>: <small><?=$info['stake'];?> XWC</small></p><?php
                                     }
                                 ?>

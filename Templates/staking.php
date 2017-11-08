@@ -146,7 +146,7 @@
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputAmount"><?=tl("Amount (in XWC)")?></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="js--calc-xwc-amount" placeholder="Amount" value="<?=floor($info['balance'])?>">
+                                        <input type="text" class="form-control" id="js--calc-xwc-amount" placeholder="Amount" value="<?=(isset($info['balance'])) ?  floor($info['balance']) : 0;?>">
                                         <div class="input-group-addon"><?=tl("XWC")?></div>
                                     </div>
                                 </div>
