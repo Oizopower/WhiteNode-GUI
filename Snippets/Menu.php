@@ -6,12 +6,6 @@
     {
         ?>
         <li>
-            <a href="/Operators/Action.php?action=download">
-                <i class="fa fa-hdd-o"></i>
-                <p><?=tl("Download Wallet")?></p>
-            </a>
-        </li>
-        <li>
             <a>
             &nbsp;<p><?=tl("System")?></p>
             </a>
