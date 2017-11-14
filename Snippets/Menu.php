@@ -1,34 +1,32 @@
 <ul class="nav">
     <?=$pageData['menu'];?>
 
+    <li>
+        <a>
+            &nbsp;<p><?=tl("System")?></p>
+        </a>
+    </li>
+    <li>
+        <a href="#" id="js--reboot">
+            <i class="fa fa-refresh icon-warning"></i>
+            <p><?=tl("Reboot")?></p>
+        </a>
+    </li>
+    <li>
+        <a href="#" id="js--shutdown">
+            <i class="fa fa-power-off icon-danger"></i>
+            <p><?=tl("Shutdown")?></p>
+        </a>
+    </li>
+    <li>
+        <a href="/Operators/Action.php?action=update">
+            <i class="fa fa-cog icon-success"></i>
+            <p><?=tl("Update GUI")?></p>
+        </a>
+    </li>
     <?php
     if(Wallet::isWalletRunning())
     {
-        ?>
-        <li>
-            <a>
-            &nbsp;<p><?=tl("System")?></p>
-            </a>
-        </li>
-        <li>
-            <a href="#" id="js--reboot">
-                <i class="fa fa-refresh icon-warning"></i>
-                <p><?=tl("Reboot")?></p>
-            </a>
-        </li>
-        <li>
-            <a href="#" id="js--shutdown">
-                <i class="fa fa-power-off icon-danger"></i>
-                <p><?=tl("Shutdown")?></p>
-            </a>
-        </li>
-        <li>
-            <a href="/Operators/Action.php?action=update">
-                <i class="fa fa-cog icon-success"></i>
-                <p><?=tl("Update GUI")?></p>
-            </a>
-        </li>
-        <?php
         if(!Wallet::isWalletEncrypted())
         {
             ?>
