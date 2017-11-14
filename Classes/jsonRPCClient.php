@@ -96,7 +96,7 @@ class jsonRPCClient {
      */
     public function __call($method,$params) {
 
-        if(!Wallet::isWalletRunning()) {
+        if(!Wallet::isWalletRunning() && !file_exists(ROOT.'remote.ini')) {
             return 0;
         }
 

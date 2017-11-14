@@ -44,8 +44,6 @@ class Whitenode
             }
         }
 
-        self::$clientd      = new jsonRPCClient("http://" . self::$walletSettings['rpcuser'] . ":" . self::$walletSettings['rpcpassword'] . "@localhost:15815");
-
         $defines = array
         (
             'WALLET' => '/home/pi/.whitecoin-xwc/',
@@ -60,6 +58,21 @@ class Whitenode
                 define($define, $value);
             }
         }
+
+        $rpcSettings        = self::getRPCSettings();
+        self::$clientd      = new jsonRPCClient("http://" . $rpcSettings['rpcuser'] . ":" . $rpcSettings['rpcpassword'] . "@" . $rpcSettings['rpchost'] . ":15815");
+    }
+
+    static public function getRPCSettings()
+    {
+        if(file_exists(ROOT."remote.ini")) {
+            $return = parse_ini_file(ROOT.'remote.ini');
+        } else {
+            self::$walletSettings['rpchost'] = "lodalhost";
+            $return = self::$walletSettings;
+        }
+
+        return $return;
     }
 
     static public function logout()
