@@ -82,7 +82,7 @@ class Whitenode
         if(file_exists(ROOT."remote.ini")) {
             $return = parse_ini_file(ROOT.'remote.ini');
         } else {
-            self::$walletSettings['rpchost'] = "lodalhost";
+            self::$walletSettings['rpchost'] = "localhost";
             $return = self::$walletSettings;
         }
 
