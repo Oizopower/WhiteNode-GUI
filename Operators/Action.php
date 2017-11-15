@@ -45,13 +45,16 @@ switch($action)
             exit;
         }
     break;
-    case "download":
+    case "calculatestake":
+        $return = Wallet::calculateStakePercentage($_REQUEST['amount']);
+    break;
+    /*case "download":
         header("Content-Type: application/octet-stream");
         header("Content-Transfer-Encoding: Binary");
         header("Content-disposition: attachment; filename=wallet.dat");
         echo readfile('/home/pi/.whitecoin-xwc/wallet.dat');
         exit;
-    break;
+    break;*/
 }
 
 header('Content-Type: application/json');
