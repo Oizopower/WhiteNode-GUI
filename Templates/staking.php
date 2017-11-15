@@ -19,7 +19,7 @@
         }
     }
 
-    $calculateStake = Wallet::calculateStakePercentage($staking['weight']);
+    $calculateStake = Wallet::calculateStakePercentage($info['balance']);
     $newamountInterest = $calculateStake['calculated'];
     $calculateInterest =  $calculateStake['interest'];
 
