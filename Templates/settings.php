@@ -1,6 +1,7 @@
 <?php
 
-if(isset($_POST) && !empty($_POST)) {
+if(isset($_POST) && !empty($_POST))
+{
     Whitenode::write_php_ini($_POST, ROOT . '/settings.ini');
 }
 
@@ -34,7 +35,7 @@ $checked = (isset(Whitenode::$settings['app_enable_login']) && Whitenode::$setti
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1"><?=tl("Password")?></label>
-                            <input type="password" class="form-control" name="app_password" placeholder="<?=tl("password")?>" value="<?=Whitenode::$settings['app_password']?>">
+                            <input type="password" class="form-control" name="app_password" placeholder="<?=tl("password")?>" autocomplete="false">
                         </div>
 
 

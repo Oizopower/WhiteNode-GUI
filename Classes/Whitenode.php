@@ -8,6 +8,7 @@ class Whitenode
     static public $db;
     static public $lang;
     static public $currentPage;
+    static public $rpcSettings;
     static public $newCoinsYear = 1051200;
 
 
@@ -29,9 +30,10 @@ class Whitenode
 
         $loggedIn = self::checkLogin();
 
-        if(!$loggedIn) {
-            if(isset($_POST['login'])) {
-
+        if(!$loggedIn)
+        {
+            if(isset($_POST['login']))
+            {
                 // check if current password is in new format otherwise make it in new format
                 if(self::countBits(self::$settings['app_password']) != 256)
                 {
@@ -68,13 +70,17 @@ class Whitenode
             }
         }
 
-        $rpcSettings        = self::getRPCSettings();
-        self::$clientd      = new jsonRPCClient("http://" . $rpcSettings['rpcuser'] . ":" . $rpcSettings['rpcpassword'] . "@" . $rpcSettings['rpchost'] . ":15815");
+        self::$rpcSettings  = self::getRPCSettings();
+        self::$clientd      = new jsonRPCClient("http://" . self::$rpcSettings['rpcuser'] . ":" . self::$rpcSettings['rpcpassword'] . "@" . self::$rpcSettings['rpchost'] . ":15815");
     }
 
     static private function createPassword($pass)
     {
-        return hash('sha256', self::$walletSettings['rpcpassword'].$pass.self::$walletSettings['rpcpassword']);
+        if(empty(self::$rpcSettings))
+        {
+            self::$rpcSettings  = self::getRPCSettings();
+        }
+        return hash('sha256', self::$rpcSettings['rpcpassword'].$pass.self::$rpcSettings['rpcpassword']);
     }
 
     static public function getRPCSettings()
@@ -82,7 +88,7 @@ class Whitenode
         if(file_exists(ROOT."remote.ini")) {
             $return = parse_ini_file(ROOT.'remote.ini');
         } else {
-            self::$walletSettings['rpchost'] = "lodalhost";
+            self::$walletSettings['rpchost'] = "localhost";
             $return = self::$walletSettings;
         }
 
@@ -142,6 +148,7 @@ class Whitenode
             $language = $locale;
         }
 
+        $language = "en_GB";
         return $language;
     }
 
@@ -216,8 +223,27 @@ class Whitenode
             $array['app_enable_login'] = 0;
         }
 
+
         // Generate Strong password:
-        $array['app_password'] = self::createPassword($array['app_password']);
+        if(empty($array['app_password']))
+        {
+            // check if password is in old format, convert to new.
+            $password = Whitenode::$settings['app_password'];
+
+            if(self::countBits($password) != 256)
+            {
+                debug($_POST['app_password']);
+                $array['app_password'] = self::createPassword($password);
+            }
+            else
+            {
+                $array['app_password'] = $password;
+            }
+        }
+        else
+        {
+            $array['app_password'] = self::createPassword($array['app_password']);
+        }
 
         foreach ($array as $key => $val)
         {
