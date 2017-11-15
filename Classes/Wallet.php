@@ -128,7 +128,6 @@ class Wallet extends Whitenode
 
         foreach($transactions as $transaction)
         {
-            debug($transactions);
             if(isset($listT[$transaction['txid']]))
             {
                 /*if($transaction['category'] == "stake")
