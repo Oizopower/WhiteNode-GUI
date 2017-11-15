@@ -14,6 +14,22 @@ class Whitenode
 
     static public function init()
     {
+        $defines = array
+        (
+            'WALLET' => '/home/pi/.whitecoin-xwc/',
+            'ROOT' => $_SERVER['DOCUMENT_ROOT'] . "/",
+            'TEMPLATES' => $_SERVER['DOCUMENT_ROOT'] . "/Templates/",
+            'SNIPPETS' => $_SERVER['DOCUMENT_ROOT'] . "/Snippets/",
+            'DEVELOP' => false,
+        );
+
+        foreach ($defines as $define => $value)
+        {
+            if (!defined($define)) {
+                define($define, $value);
+            }
+        }
+
         if (file_exists('/home/pi/.whitecoin-xwc/whitecoin.conf')) {
             self::$walletSettings = parse_ini_file('/home/pi/.whitecoin-xwc/whitecoin.conf');
         } else if (file_exists(getenv('appdata') . "\whitecoin-xwc\whitecoin.conf")) {
@@ -52,21 +68,6 @@ class Whitenode
             } else {
                 include(ROOT.'login.php');
                 exit;
-            }
-        }
-
-        $defines = array
-        (
-            'WALLET' => '/home/pi/.whitecoin-xwc/',
-            'ROOT' => $_SERVER['DOCUMENT_ROOT'] . "/",
-            'TEMPLATES' => $_SERVER['DOCUMENT_ROOT'] . "/Templates/",
-            'SNIPPETS' => $_SERVER['DOCUMENT_ROOT'] . "/Snippets/",
-        );
-
-        foreach ($defines as $define => $value)
-        {
-            if (!defined($define)) {
-                define($define, $value);
             }
         }
 
@@ -148,7 +149,11 @@ class Whitenode
             $language = $locale;
         }
 
-        $language = "en_GB";
+        if(DEVELOP) {
+            $language = "en_GB";
+        }
+
+
         return $language;
     }
 
