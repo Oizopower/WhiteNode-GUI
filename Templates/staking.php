@@ -144,7 +144,7 @@
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputAmount"><?=tl("Amount (in XWC)")?></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="js--calc-xwc-amount" placeholder="Amount" value="<?=(isset($info['balance'])) ?  floor($info['balance']) : 0;?>">
+                                        <input type="number" class="form-control" id="js--calc-xwc-amount" placeholder="Amount" value="<?=(isset($info['balance'])) ?  floor($info['balance']) : 0;?>">
                                         <div class="input-group-addon"><?=tl("XWC")?></div>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputAmount"><?=tl("Amount (in XWC)")?></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" readonly id="js--calc-xwc-interest" placeholder="Amount" value="<?=floor($newamountInterest)?>">
+                                        <input type="number" class="form-control" readonly id="js--calc-xwc-interest" placeholder="Amount" value="<?=floor($newamountInterest)?>">
                                         <div class="input-group-addon"><?=tl("XWC")?></div>
                                     </div>
                                 </div>
