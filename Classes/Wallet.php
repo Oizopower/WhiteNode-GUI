@@ -60,28 +60,16 @@ class Wallet extends Whitenode
 
     static public function isWalletRunning()
     {
-        $isWindows = false;
         $running = false;
 
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            $isWindows = true;
+        if(empty(Whitenode::$rpcSettings)) {
+            Whitenode::$rpcSettings = Whitenode::getRPCSettings();
         }
 
-        if($isWindows)
-        {
-            $checkconn = fsockopen('127.0.0.1', 15815, $errno, $errstr, 1);
-            if($checkconn >= 1){
-                $running = true;
-            }
+        $checkconn = fsockopen(Whitenode::$rpcSettings['rpchost'], 15815, $errno, $errstr, 1);
+        if($checkconn >= 1){
+            $running = true;
         }
-        else
-        {
-            if(file_exists(WALLET.'whitecoind.pid')) {
-                $running = true;
-            }
-        }
-
-
 
         return $running;
     }
@@ -140,6 +128,7 @@ class Wallet extends Whitenode
 
         foreach($transactions as $transaction)
         {
+            debug($transactions);
             if(isset($listT[$transaction['txid']]))
             {
                 /*if($transaction['category'] == "stake")
@@ -158,17 +147,45 @@ class Wallet extends Whitenode
         return $listT;
     }
 
+    static public function calculateStakePercentage($coinAmount)
+    {
+        $staking    = Wallet::$clientd->getstakinginfo();
+
+        $stakingWeight      = floor($coinAmount);
+        $netStakeWeight     = floor($staking['netstakeweight'])/100000000;
+
+        $calculateInterest  = ($staking['netstakeweight'] > 0) ? (Whitenode::$newCoinsYear/$netStakeWeight)*100 : 0;
+        $newamountInterest  = ($stakingWeight * ($calculateInterest/100))+$stakingWeight;
+
+        return array
+        (
+            'interest' => $calculateInterest,
+            'input' => $coinAmount,
+            'calculated' => $newamountInterest
+        );
+    }
+
     static public function actionEncrypt($request)
     {
         $encryptPassword = addslashes($request['encrypt']);
 
-        $data = Whitenode::$clientd->encryptwallet($encryptPassword);
-
-        if (isset($request['message'])) {
-            $return = $data;
-        } else {
-            $return = array('encrypted' => true);
+        if(empty($encryptPassword))
+        {
+            $request['message'] = tl('Password cannot be empty');
+            $return = $request;
         }
+        else
+        {
+            $data = Whitenode::$clientd->encryptwallet($encryptPassword);
+
+            if (isset($request['message'])) {
+                $return = $data;
+            } else {
+                $return = array('encrypted' => true);
+            }
+        }
+
+
 
         return $return;
     }
