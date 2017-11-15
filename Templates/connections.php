@@ -21,17 +21,20 @@
                         </thead>
                         <tbody>
                         <?php
-                            foreach($connections as $d)
+                            if(!empty($connections)) 
                             {
-                                ?>
-                                <tr>
-                                    <td><?=$d['addr']?></td>
-                                    <td><?=$d['version']?></td>
-                                    <td><?=$d['subver']?></td>
-                                    <td><?=$d['inbound']?></td>
-                                    <td><?=date("Y-m-d H:i:s",$d['conntime'])?></td>
-                                </tr>
-                                <?php
+                                foreach($connections as $d)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td><?=$d['addr']?></td>
+                                        <td><?=$d['version']?></td>
+                                        <td><?=$d['subver']?></td>
+                                        <td><?=$d['inbound']?></td>
+                                        <td><?=date("Y-m-d H:i:s",$d['conntime'])?></td>
+                                    </tr>
+                                    <?php
+                                }
                             }
                         ?>
                         </tbody>
