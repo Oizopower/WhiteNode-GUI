@@ -19,11 +19,11 @@
         }
     }
 
-    $stakingWeight      = floor($staking['weight'])/100000000;
-    $netStakeWeight     = floor($staking['netstakeweight'])/100000000;
+    $calculateStake = Wallet::calculateStakePercentage($staking['weight']);
+    $newamountInterest = $calculateStake['calculated'];
+    $calculateInterest =  $calculateStake['interest'];
 
-    $calculateInterest  = ($staking['netstakeweight'] > 0) ? (Whitenode::$newCoinsYear/$netStakeWeight)*100 : 0;
-    $newamountInterest  = ($stakingWeight * ($calculateInterest/100))+$stakingWeight;
+    $expectedStake      = ($staking['expectedtime'] == 0) ? tl("Wallet not staking") : Whitenode::secondsToTime($staking['expectedtime']);
 
 //    $unlockedUntill = date("Y-m-d H:i:s",(int)number_format($info['unlocked_until'],0,'',''));
 ?>
@@ -91,7 +91,7 @@
                         <div class="col-xs-10">
                             <div class="numbers ">
                                 <p><?=tl("Expected stake")?></p>
-                                <p style="font-size: 20px; padding-top: 10px;"><?=Whitenode::secondsToTime($staking['expectedtime'])?></p>
+                                <p style="font-size: 20px; padding-top: 10px;"><?=$expectedStake?></p>
                             </div>
 
                         </div>
@@ -158,7 +158,7 @@
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputAmount"><?=tl("Amount (in XWC)")?></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" readonly id="js--calc-xwc-amount" placeholder="Amount" value="<?=floor($newamountInterest)?>">
+                                        <input type="text" class="form-control" readonly id="js--calc-xwc-interest" placeholder="Amount" value="<?=floor($newamountInterest)?>">
                                         <div class="input-group-addon"><?=tl("XWC")?></div>
                                     </div>
                                 </div>

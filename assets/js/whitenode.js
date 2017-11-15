@@ -123,6 +123,35 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
+    // Stake calculator
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+
+    $(document).on("keyup",'#js--calc-xwc-amount',function(e)
+    {
+        delay(function(){
+            var $data = {
+                action:  'calculatestake',
+                amount: $("#js--calc-xwc-amount").val()
+            };
+
+            var $success = function ($json)
+            {
+                var $calculated = $json.calculated
+                $("#js--calc-xwc-interest").val(Math.floor($calculated));
+            };
+
+            action($data, $success, 'json');
+
+        }, 400 );
+    });
+
+
     function action($data, $success, $type)
     {
         $.ajax({
