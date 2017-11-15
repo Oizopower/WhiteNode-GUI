@@ -25,6 +25,9 @@ $language = array(
     "shutdown"                                                              => "shutdown",
     "update-gui"                                                            => "Update GUI",
 
+    // Modals
+    "password-does-not-match"                                               => "wachtwoorden komen niet overeen",               // untranslated
+    "verify-password"                                                       => "wachtwoord controle",                           // untranslated
 
     // Footer
     "whitecoin"                                                             => "Whitecoin",
@@ -86,8 +89,6 @@ $language = array(
     "subversion"                                                            => "sub version",
     "inbound"                                                               => "inbound connection",
     "conntime"                                                              => "connection time",
-
-
 
     // misc (might be deleted soon
     "page-being-developed"                                                  => "page being developed",

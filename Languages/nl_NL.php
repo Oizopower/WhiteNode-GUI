@@ -25,6 +25,10 @@ $language = array(
     "shutdown"                                                              => "Afsluiten",
     "update-gui"                                                            => "Update GUI",
 
+    // Modals
+    "password-does-not-match"                                               => "wachtwoorden komen niet overeen",
+    "verify-password"                                                       => "wachtwoord controle",
+
     // Footer
     "whitecoin"                                                             => "Whitecoin",
     "website"                                                               => "Website",
@@ -75,8 +79,8 @@ $language = array(
     "xwc"                                                                   => "XWC",
     "recent-stakes"                                                         => "recente stakes",
     "view-your-recent-stakes-below"                                         => "bekijk je recente stake hieronder",
-    "wallet-not-staking"                                                    => "not staking",                                   // untranslated
-    "password-cannot-be-empty"                                              => "password cannot be empty",                      // untranslated
+    "wallet-not-staking"                                                    => "niet aan het staken",
+    "password-cannot-be-empty"                                              => "wachtwoord kan niet leeg zijn",
 
     // Connections
     "current-wallet-connections"                                            => "huidige wallet connecties",
@@ -85,7 +89,6 @@ $language = array(
     "subversion"                                                            => "sub versie",
     "inbound"                                                               => "binnenkomende connecties",
     "conntime"                                                              => "connectie tijd",
-
 
     // misc (might be deleted soon
     "page-being-developed"                                                  => "Pagina in ontwikkeling",

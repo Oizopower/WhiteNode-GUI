@@ -25,6 +25,9 @@ $language = array(
     "shutdown"                                                              => "关机",
     "update-gui"                                                            => "更新GUI",
 
+    // Modals
+    "password-does-not-match"                                               => "wachtwoorden komen niet overeen",       // untranslated
+    "verify-password"                                                       => "wachtwoord controle",                   // untranslated
 
     // Footer
     "whitecoin"                                                             => "百特币",
@@ -76,16 +79,16 @@ $language = array(
     "xwc"                                                                   => "百特币",
     "recent-stakes"                                                         => "最近的利息",
     "view-your-recent-stakes-below"                                         => "浏览你最近的利息",
-    "wallet-not-staking"                                                    => "not staking",                                   // untranslated
-    "password-cannot-be-empty"                                              => "password cannot be empty",                      // untranslated
+    "wallet-not-staking"                                                    => "not staking",                           // untranslated
+    "password-cannot-be-empty"                                              => "password cannot be empty",              // untranslated
 
     // Connections
-    "current-wallet-connections"                                            => "current wallet connections",                    // untranslated
-    "address"                                                               => "address",                                       // untranslated
-    "version"                                                               => "version",                                       // untranslated
-    "subversion"                                                            => "sub version",                                   // untranslated
-    "inbound"                                                               => "inbound connection",                            // untranslated
-    "conntime"                                                              => "connection time",                               // untranslated
+    "current-wallet-connections"                                            => "current wallet connections",            // untranslated
+    "address"                                                               => "address",                               // untranslated
+    "version"                                                               => "version",                               // untranslated
+    "subversion"                                                            => "sub version",                           // untranslated
+    "inbound"                                                               => "inbound connection",                    // untranslated
+    "conntime"                                                              => "connection time",                       // untranslated
 
 
     // misc (might be deleted soon

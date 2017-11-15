@@ -24,8 +24,6 @@
     $calculateInterest =  $calculateStake['interest'];
 
     $expectedStake      = ($staking['expectedtime'] == 0) ? tl("Wallet not staking") : Whitenode::secondsToTime($staking['expectedtime']);
-
-//    $unlockedUntill = date("Y-m-d H:i:s",(int)number_format($info['unlocked_until'],0,'',''));
 ?>
 <div class="container-fluid">
     <div class="row">

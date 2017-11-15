@@ -33,9 +33,9 @@ class Wallet extends Whitenode
                 }
 
             }
-
-
-        } else {
+        }
+        else
+        {
             $tx = array();
         }
 
@@ -67,6 +67,7 @@ class Wallet extends Whitenode
         }
 
         $checkconn = fsockopen(Whitenode::$rpcSettings['rpchost'], 15815, $errno, $errstr, 1);
+
         if($checkconn >= 1){
             $running = true;
         }
@@ -117,7 +118,6 @@ class Wallet extends Whitenode
             $icon = "success";
         }
 
-
         return 'icon-'.$icon;
     }
 
@@ -130,15 +130,10 @@ class Wallet extends Whitenode
         {
             if(isset($listT[$transaction['txid']]))
             {
-                /*if($transaction['category'] == "stake")
-                {
-                    $listT[$transaction['txid']] = $transaction;
-                }*/
                 $listT[] = $transaction;
             }
             else
             {
-//                $listT[$transaction['txid']] = $transaction;
                 $listT[] = $transaction;
             }
         }
@@ -167,10 +162,16 @@ class Wallet extends Whitenode
     static public function actionEncrypt($request)
     {
         $encryptPassword = addslashes($request['encrypt']);
+        $encryptPasswordVerify = addslashes($request['encryptVerify']);
 
         if(empty($encryptPassword))
         {
             $request['message'] = tl('Password cannot be empty');
+            $return = $request;
+        }
+        elseif($encryptPassword != $encryptPasswordVerify)
+        {
+            $request['message'] = tl('Password does not match');
             $return = $request;
         }
         else
@@ -183,8 +184,6 @@ class Wallet extends Whitenode
                 $return = array('encrypted' => true);
             }
         }
-
-
 
         return $return;
     }
