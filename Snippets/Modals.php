@@ -10,7 +10,7 @@
                 <form role="form">
                     <div class="form-group">
                         <label for="recipient-name" class="control-label">Password:</label>
-                        <input type="encrypt-password" class="form-control" id="encryptpassword">
+                        <input type="password" class="form-control" id="encryptpassword">
                     </div>
                 </form>
             </div>
