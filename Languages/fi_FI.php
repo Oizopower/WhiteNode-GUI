@@ -75,6 +75,16 @@ $language = array(
     "xwc"                                                                   => "XWC",
     "recent-stakes"                                                         => "viimeisimmät osakkuudet",
     "view-your-recent-stakes-below"                                         => "katso viimeisimmät osakkuudet alta",
+    "wallet-not-staking"                                                    => "not staking",                                   // untranslated
+    "password-cannot-be-empty"                                              => "password cannot be empty",                      // untranslated
+
+    // Connections
+    "current-wallet-connections"                                            => "current wallet connections",                    // untranslated
+    "address"                                                               => "address",                                       // untranslated
+    "version"                                                               => "version",                                       // untranslated
+    "subversion"                                                            => "sub version",                                   // untranslated
+    "inbound"                                                               => "inbound connection",                            // untranslated
+    "conntime"                                                              => "connection time",                               // untranslated
 
 
     // misc (might be deleted soon

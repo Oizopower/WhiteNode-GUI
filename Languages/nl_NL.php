@@ -75,6 +75,16 @@ $language = array(
     "xwc"                                                                   => "XWC",
     "recent-stakes"                                                         => "recente stakes",
     "view-your-recent-stakes-below"                                         => "bekijk je recente stake hieronder",
+    "wallet-not-staking"                                                    => "not staking",                                   // untranslated
+    "password-cannot-be-empty"                                              => "password cannot be empty",                      // untranslated
+
+    // Connections
+    "current-wallet-connections"                                            => "huidige wallet connecties",
+    "address"                                                               => "adres",
+    "version"                                                               => "versie",
+    "subversion"                                                            => "sub versie",
+    "inbound"                                                               => "binnenkomende connecties",
+    "conntime"                                                              => "connectie tijd",
 
 
     // misc (might be deleted soon

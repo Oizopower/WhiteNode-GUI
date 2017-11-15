@@ -76,6 +76,17 @@ $language = array(
     "xwc"                                                                   => "XWC",
     "recent-stakes"                                                         => "recent stakes",
     "view-your-recent-stakes-below"                                         => "view your recent stakes below",
+    "wallet-not-staking"                                                    => "not staking",                                   // untranslated
+    "password-cannot-be-empty"                                              => "password cannot be empty",                      // untranslated
+
+    // Connections
+    "current-wallet-connections"                                            => "current wallet connections",
+    "address"                                                               => "address",
+    "version"                                                               => "version",
+    "subversion"                                                            => "sub version",
+    "inbound"                                                               => "inbound connection",
+    "conntime"                                                              => "connection time",
+
 
 
     // misc (might be deleted soon
