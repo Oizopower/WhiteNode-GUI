@@ -31,7 +31,16 @@ class Whitenode
 
         if(!$loggedIn) {
             if(isset($_POST['login'])) {
-                if(self::$settings['app_name'] == $_POST['app_name'] && self::$settings['app_password'] == $_POST['app_password']) {
+
+                // check if current password is in new format otherwise make it in new format
+                if(self::countBits(self::$settings['app_password']) != 256)
+                {
+                    self::$settings['app_password'] = self::createPassword(self::$settings['app_password']);
+                }
+
+                $password = self::createPassword($_POST['app_password']);
+
+                if(self::$settings['app_name'] == $_POST['app_name'] && self::$settings['app_password'] == $password) {
                     $_SESSION['is_logged_in'] = 1;
                 } else {
                     unset($_SESSION['is_logged_in']);
@@ -61,6 +70,11 @@ class Whitenode
 
         $rpcSettings        = self::getRPCSettings();
         self::$clientd      = new jsonRPCClient("http://" . $rpcSettings['rpcuser'] . ":" . $rpcSettings['rpcpassword'] . "@" . $rpcSettings['rpchost'] . ":15815");
+    }
+
+    static private function createPassword($pass)
+    {
+        return hash('sha256', self::$walletSettings['rpcpassword'].$pass.self::$walletSettings['rpcpassword']);
     }
 
     static public function getRPCSettings()
@@ -199,8 +213,11 @@ class Whitenode
         $res = array();
 
         if(!isset($array["app_enable_login"])) {
-            $array['app_enable_login '] = 0;
+            $array['app_enable_login'] = 0;
         }
+
+        // Generate Strong password:
+        $array['app_password'] = self::createPassword($array['app_password']);
 
         foreach ($array as $key => $val)
         {
@@ -220,6 +237,12 @@ class Whitenode
         self::safefilerewrite($file, implode("\r\n", $res));
         self::$settings     = parse_ini_file(ROOT . '/settings.ini');
 
+    }
+
+    static private function countBits(string $key) : int
+    {
+        $bits  =   (ctype_xdigit($key)) ? 4 : 8;
+        return strlen($key)*$bits;
     }
 
     static private function safefilerewrite($fileName, $dataToSave)
@@ -243,7 +266,6 @@ class Whitenode
             } else {
                 $return = "{".$string."}";
             }
-
         }
         return $return;
     }
