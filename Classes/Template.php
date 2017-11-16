@@ -11,6 +11,7 @@ class Template
         "Wallet info" => array("icon" => "ti-wallet", "url" => "walletinfo", "show" => 1),
         "Settings" => array("icon" => "", "url" => "settings", "show" => 0),
         "Connections" => array("icon" => "", "url" => "connections", "show" => 0),
+        "Send preview" => array("icon" => "", "url" => "send-preview", "show" => 0),
     );
 
     static public $currentPage;
