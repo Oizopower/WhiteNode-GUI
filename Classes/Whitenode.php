@@ -20,7 +20,8 @@ class Whitenode
             'ROOT' => $_SERVER['DOCUMENT_ROOT'] . "/",
             'TEMPLATES' => $_SERVER['DOCUMENT_ROOT'] . "/Templates/",
             'SNIPPETS' => $_SERVER['DOCUMENT_ROOT'] . "/Snippets/",
-            'DEVELOP' => false,
+            'DEVELOP' => true,
+            'DISKTHRESHOLD' => 80,
         );
 
         foreach ($defines as $define => $value)

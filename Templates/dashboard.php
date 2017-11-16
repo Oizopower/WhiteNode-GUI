@@ -21,58 +21,56 @@
     if($blocks < $listNode)
     {
     ?>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="Progress">
-                    <div class="header">
-                        <p>
-                            <i class="ti-pulse"></i>
-                            <?=tl("Synchronizing")?>:
-                            <div id="js--sync"><strong><?=$percetage?>%</strong> (<?=$blocks?> / <?=$listNode?>)</div>
-                        </p>
-                    </div>
-                    <div class="content">
-                        <progress max="100" value="<?=$percetage?>" class="Progress-main">
-                            <div class="Progress-bar" role="presentation">
-                                <span class="Progress-value" style="width: <?=$percetage?>%;"> </span>
-                            </div>
-                        </progress>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php } ?>
-
-    <?php
-        if($diskUsage['percentage'] > 80)
-        {
-            ?>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="Progress">
-                            <div class="header">
-                                <i class="ti-harddrive"></i>
-                                <?=tl("Disk warning")?>:
-                                <div id="js--disk"><strong><?=$diskUsage['message']?>%</strong></div>
-                            </div>
-                            <div class="content">
-                                <progress max="100" value="<?=$diskUsage['percentage']?>" class="Progress-main">
-                                    <div class="Progress-bar" role="presentation">
-                                        <span class="Progress-value" style="width: <?=$diskUsage['percentage']?>%;"> </span>
-                                    </div>
-                                </progress>
-                            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="Progress">
+                        <div class="header">
+                            <p>
+                                <i class="ti-pulse"></i>
+                                <?=tl("Synchronizing")?>:
+                                <div id="js--sync"><strong><?=$percetage?>%</strong> (<?=$blocks?> / <?=$listNode?>)</div>
+                            </p>
+                        </div>
+                        <div class="content">
+                            <progress max="100" value="<?=$percetage?>" class="Progress-main">
+                                <div class="Progress-bar" role="presentation">
+                                    <span class="Progress-value" style="width: <?=$percetage?>%;"> </span>
+                                </div>
+                            </progress>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php
-        }
+        </div>
+    <?php
+    }
+    if($diskUsage['percentage'] > DISKTHRESHOLD)
+    {
+        ?>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="Progress">
+                        <div class="header">
+                            <i class="ti-harddrive"></i>
+                            <?=tl("Disk warning")?>:
+                            <div id="js--disk"><strong><?=$diskUsage['message']?>%</strong></div>
+                        </div>
+                        <div class="content">
+                            <progress max="100" value="<?=$diskUsage['percentage']?>" class="Progress-main">
+                                <div class="Progress-bar" role="presentation">
+                                    <span class="Progress-value" style="width: <?=$diskUsage['percentage']?>%;"> </span>
+                                </div>
+                            </progress>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
     ?>
-
     <div class="row">
         <div class="col-lg-3 col-sm-6">
             <?php /* <div class="card">
