@@ -7,8 +7,17 @@ if(isset($_POST) && !empty($_POST))
 
 $checked = (isset(Whitenode::$settings['app_enable_login']) && Whitenode::$settings['app_enable_login']  == 1) ? "checked" : "";
 ?>
-
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="#">General</a></li>
+                    <li><a href="#">Wallet settings</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
