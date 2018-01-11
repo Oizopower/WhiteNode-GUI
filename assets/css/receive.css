@@ -1,0 +1,26 @@
+.select-item{
+    background-color: #ff9900 !important;
+}
+#signature .tab-content{
+    padding : 20px;
+}
+#sign *{
+    display : block;
+    margin-top : 15px;
+}
+#sign button{
+    display: inline-block;
+}
+#sign .reset-btn{
+    display: inline-block;
+}
+#vail *{
+    display : block;
+    margin-top : 15px;
+}
+#vail button{
+    display: inline-block;
+}
+#vail .reset-btn{
+    display: inline-block;
+}

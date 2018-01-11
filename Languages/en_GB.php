@@ -87,11 +87,49 @@ $language = array(
     "inbound"                                                               => "inbound connection",
     "conntime"                                                              => "connection time",
 
+       //Send
+    "send-whitecoin"                                                        => "send whitecoin",
+    "send-to"                                                               => "send to",
+    "label"                                                                 => "label",
+    "add-receive-address"                                                   => "add receive address",
+    "clear-receive-address"                                                 => "clear receive address",
 
+    //Receive
+    "receive-whitecoin"                                                     => "receive whitecoin",
+    "new-address"                                                           => "new address",
+    "copy-address"                                                          => "copy address",
+    "signature"                                                             => "signature",
 
     // misc (might be deleted soon
     "page-being-developed"                                                  => "page being developed",
     "use-command-line-for-now"                                              => "use command line for now",
     "but-here-is-the-receiving-address"                                     => "but here is the receiving address",
 
+    "signature-tips"                                                        => "You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.",
+    "validation-tips"                                                       => "Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.",
+    "signature-hint"                                                        => "The address to sign the message with (e.g. WPT7ufM1tz2uzV7x9sG26z4CuhWs2B18Rw)",
+    "whitecoin-address-input-hint"                                          => "Enter a Whitecoin address (e.g. WPT7ufM1tz2uzV7x9sG26z4CuhWs2B18Rw)",
+    "sign-message"                                                          => "Enter the message you want to sign here",
+    "create-signature-message-hint"                                         => "Click 'Sign Message' to generate signature",
+    "enter-whitecoin-signature"                                             => "Enter Whitecoin Signature",
+    "sign-message-label"                                                    => "Sign Message",
+    "verify-message-label"                                                  => "Verify Message",
+    "delete"                                                                => "Delete",
+    "received"                                                              => "Receive white coin",
+    "change-password"                                                       => "Change password",
+    "language"                                                              => "Language",
+    "chinese"                                                               => "Chinese",
+    "english"                                                               => "English",
+
+    "old-password"                                                          => "Old password",
+    "new-password"                                                          => "New password",
+    "confirm-password"                                                      => "Confirm password",
+
+    "input-null"                                                            => "Input empty",
+    "confirm-different"                                                     => "Cofirm password not right",
+    "change-pass-success"                                                   => "Change password success",
+    "change-pass-fail"                                                      => "Change password fail",
+    "logout"                                                                => "Quit",
+    "login"                                                                 => "Login",
+    
 );
