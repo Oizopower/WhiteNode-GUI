@@ -6,7 +6,7 @@ class Whitenode
     static public $walletSettings;
     static public $clientd;
     static public $db;
-    static public $lang;
+    static public $lang='en_GB';
     static public $currentPage;
     static public $rpcSettings;
     static public $newCoinsYear = 1051200;
@@ -51,13 +51,14 @@ class Whitenode
             if(isset($_POST['login']))
             {
                 // check if current password is in new format otherwise make it in new format
+                
                 if(self::countBits(self::$settings['app_password']) != 256)
                 {
                     self::$settings['app_password'] = self::createPassword(self::$settings['app_password']);
                 }
 
                 $password = self::createPassword($_POST['app_password']);
-
+                                
                 if(self::$settings['app_name'] == $_POST['app_name'] && self::$settings['app_password'] == $password) {
                     $_SESSION['is_logged_in'] = 1;
                 } else {
@@ -102,6 +103,15 @@ class Whitenode
         header("Location: /");
     }
 
+    static public function checkLoginFlag()
+    {
+        if(self::$settings['app_enable_login'] == "1")
+        {
+            return true;
+        }
+        return false;
+    }
+    
     static public function checkLogin()
     {
         $allowed = array(
@@ -141,6 +151,7 @@ class Whitenode
 
     static public function getSiteLanguage()
     {
+         /*
         $locale = self::getLocale();
 
         if (!file_exists(ROOT."/Languages/" . $locale . ".php")) {
@@ -151,10 +162,23 @@ class Whitenode
 
         if(DEVELOP) {
             $language = "en_GB";
+        }*/
+        $language = DataManager::getInstance()->getLanguage();
+        //print_r($password);
+        $language = $language[0]['lang'];
+        return $language ;
+    }
+
+    static public function setSiteLanguage($lang)
+    {
+        if($lang=='en'){
+            $language = "en_GB";
+        }else if($lang=='zh') {
+            $language = "zh_CN";
         }
-
-
-        return $language;
+        DataManager::getInstance()->setLanguage($language);
+        
+        //echo "set lang=".self::$lang;
     }
 
     static public function secondsToTime($seconds)
