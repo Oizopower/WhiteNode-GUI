@@ -87,6 +87,71 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
+    $(document).on("click",'#submitchangepasswd',function(e)
+    {
+        var input = $("#oldpasswdvalue_input").val();
+        var config = $("#oldpasswdvalue_conf").val();
+        var passwd = $("#changepasswdvalue").val();
+        var confirm = $("#confirmpasswdvalue").val();
+        var language = $("#current_language").val();
+
+        console.log("config="+config);
+        console.log("language="+language);
+        
+        if(input.length==0 || passwd.length ==0 ||confirm.length==0)
+        {
+            if(language=='en_GB'){
+                alert('input null');
+            }else{
+                alert('输入为空');
+            }
+            return;
+        }
+
+        if(passwd != confirm){
+
+            if(language=='en_GB'){
+                alert('cofirm password not right');
+            }else{
+                alert('两次密码输入不一致');
+            }
+            return;
+        }
+        
+        
+        if($("#changepasswdvalue").val() != undefined)
+        {
+
+            var data = {
+                action:  'changepasswd',
+                passwdinput: input,
+                passwdconfig: config,
+                passwdchange: passwd
+            };
+
+            var success = function (json)
+            {
+                if(json.message === 'success'){
+                    if(language=='en_GB'){
+                        alert('change password success');
+                    }else{
+                        alert('密码修改成功');
+                    }
+                }else {
+                    if(language=='en_GB'){
+                        alert('change password fail');
+                    }else{
+                        alert('密码修改失败，旧密码输入有误');
+                    }
+                }
+                $("#changepasswd").modal('hide');
+            };
+
+            action(data, success, 'json');
+            $("#changepasswd").modal('hide');
+        }
+        e.preventDefault();
+    });
     $(document).on("click",'#js--reboot',function(e)
     {
         var $data = {
@@ -151,9 +216,25 @@ $(document).ready(function(){
         }, 400 );
     });
 
+    $(document).on("click",'#js-language a',function(e)
+    {console.log('lang start')
+        var $data = {
+            action:  'changelanguage',
+            language:  $(this).attr('data-value')
+        };
+
+        var $success = function ($json)
+        {
+          window.location.reload();
+        };
+
+        action($data, $success, 'json');
+        e.preventDefault();
+    });
 
     function action($data, $success, $type)
     {
+
         $.ajax({
             type:     'POST',
             url:      "/Operators/Action.php",

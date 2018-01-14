@@ -35,13 +35,13 @@
                                 <div class="logo">
                                     <h2>WhiteNode</h2>
                                 </div>
-                                <input type="text" name="app_name" placeholder="Username" required class="form-control input-lg" />
-
-                                <input type="password" class="form-control input-lg" name="app_password" id="password" placeholder="Password" required="" />
+                                <input type="text" name="app_name" placeholder="<?=tl("Username")?>" required class="form-control input-lg" />
+                                
+                                <input type="password" class="form-control input-lg" name="app_password" id="password" placeholder="<?=tl("Password")?>" required="" />
 
                                 <div class="pwstrength_viewport_progress"></div>
 
-                                <button type="submit" name="login" class="btn btn-primary btn-block">Sign in</button>
+                                <button type="submit" name="login" class="btn btn-primary btn-block"><?=tl("Login")?></button>
                             </form>
                         </section>
                     </div>

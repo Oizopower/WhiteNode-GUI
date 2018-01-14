@@ -80,12 +80,25 @@ $language = array(
     "password-cannot-be-empty"                                              => "password cannot be empty",                      // untranslated
 
     // Connections
-    "current-wallet-connections"                                            => "current wallet connections",                    // untranslated
-    "address"                                                               => "address",                                       // untranslated
-    "version"                                                               => "version",                                       // untranslated
-    "subversion"                                                            => "sub version",                                   // untranslated
-    "inbound"                                                               => "inbound connection",                            // untranslated
-    "conntime"                                                              => "connection time",                               // untranslated
+    "current-wallet-connections"                                            => "当前钱包连接数",                    // untranslated
+    "address"                                                               => "地址",                                       // untranslated
+    "version"                                                               => "版本",                                       // untranslated
+    "subversion"                                                            => "子版本",                                   // untranslated
+    "inbound"                                                               => "输入连接数",                            // untranslated
+    "conntime"                                                              => "链接时间",                               // untranslated
+
+    //Send
+    "send-whitecoin"                                                        => "发送白币",                    // untranslated
+    "send-to"                                                               => "付给",                    // untranslated
+    "label"                                                                 => "标签",                    // untranslated
+    "add-receive-address"                                                   => "添加收款人",                    // untranslated
+    "clear-receive-address"                                                 => "清除所有",                    // untranslated
+
+    //Receive
+    "receive-whitecoin"                                                     => "接收白币",                    // untranslated
+    "new-address"                                                           => "新建地址",                    // untranslated
+    "copy-address"                                                          => "拷贝地址",                    // untranslated
+    "signature"                                                             => "签名",                    // untranslated
 
 
     // misc (might be deleted soon
@@ -93,4 +106,30 @@ $language = array(
     "use-command-line-for-now"                                              => "现在使用命令行",
     "but-here-is-the-receiving-address"                                     => "这是接收地址",
 
+    "signature-tips"                                                        => "您可以用你的地址对消息进行签名，以证明您是该地址的所有人。注意不要对模棱两可的消息签名，以免遭受钓鱼式攻击。请确保消息内容准确的表达了您的真实意愿。",
+    "validation-tips"                                                       => "在下面输入签名地址，消息（请确保换行符、空格符、制表符等等一个不漏）和签名以验证消息。请确保签名信息准确，提防中间人攻击。",
+    "signature-hint"                                                        => "用来签名该消息的地址(例： WPT7ufM1tz2uzV7x9sG26z4CuhWs2B18Rw)",
+    "whitecoin-address-input-hint"                                          => "输入一个白币地址 (例：WPT7ufM1tz2uzV7x9sG26z4CuhWs2B18Rw)",
+    "sign-message"                                                          => "请输入您要发送的签名消息",
+    "create-signature-message-hint"                                         => "单击“签名消息“产生签名。",
+    "enter-whitecoin-signature"                                             => "输入白币签名。",
+    "sign-message-label"                                                    => "签名消息",
+    "verify-message-label"                                                  => "验证消息",
+    "delete"                                                                => "删除",
+    "received"                                                              => "接收的白币",
+    "change-password"                                                       => "修改密码",
+    "language"                                                              => "语言",
+    "chinese"                                                               => "中文",
+    "english"                                                               => "英文",
+
+    "old-password"                                                          => "旧密码",
+    "new-password"                                                          => "新密码",
+    "confirm-password"                                                      => "确认密码",
+
+    "input-null"                                                            => "输入为空",
+    "confirm-different"                                                     => "两次密码输入不一致",
+    "change-pass-success"                                                   => "密码修改成功",
+    "change-pass-fail"                                                      => "密码修改失败，旧密码输入有误",
+    "logout"                                                                => "退出",
+    "login"                                                                 => "登录",
 );
