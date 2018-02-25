@@ -87,6 +87,53 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
+    $(document).on("click",'#submitchangepasswd',function(e)
+    {
+        var input = $("#oldpasswdvalue_input").val();
+        var config = $("#oldpasswdvalue_conf").val();
+        var passwd = $("#changepasswdvalue").val();
+        var confirm = $("#confirmpasswdvalue").val();
+
+        console.log("config="+config);
+        
+        if(input.length==0 || passwd.length ==0 ||confirm.length==0)
+        {
+            alert('输入为空');
+            return;
+        }
+
+        if(passwd != confirm){
+            alert('两次密码输入不一致');
+            return;
+        }
+        
+        
+        if($("#changepasswdvalue").val() != undefined)
+        {
+
+            var data = {
+                action:  'changepasswd',
+                passwdinput: input,
+                passwdconfig: config,
+                passwdchange: passwd
+            };
+
+            var success = function (json)
+            {
+                if(json.message === 'success'){
+                    alert('密码修改成功，请等候60秒');
+                }else {
+                    alert('密码修改失败，旧密码输入有误。');
+                }
+                $("#changepasswd").modal('hide');
+            };
+
+            action(data, success, 'json');
+            $("#changepasswd").modal('hide');
+        }
+        e.preventDefault();
+    });
+
     $(document).on("click",'#js--reboot',function(e)
     {
         var $data = {
@@ -151,9 +198,25 @@ $(document).ready(function(){
         }, 400 );
     });
 
+    $(document).on("click",'#js-language a',function(e)
+    {console.log('lang start')
+        var $data = {
+            action:  'changelanguage',
+            language:  $(this).attr('data-value')
+        };
+
+        var $success = function ($json)
+        {
+          window.location.reload();
+        };
+
+        action($data, $success, 'json');
+        e.preventDefault();
+    });
 
     function action($data, $success, $type)
     {
+
         $.ajax({
             type:     'POST',
             url:      "/Operators/Action.php",

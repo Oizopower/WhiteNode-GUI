@@ -18,12 +18,7 @@
             <p><?=tl("Shutdown")?></p>
         </a>
     </li>
-    <li>
-        <a href="/Operators/Action.php?action=update">
-            <i class="fa fa-cog icon-success"></i>
-            <p><?=tl("Update GUI")?></p>
-        </a>
-    </li>
+    
     <?php
     if(Wallet::isWalletRunning())
     {

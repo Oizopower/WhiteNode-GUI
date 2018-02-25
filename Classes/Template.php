@@ -6,8 +6,6 @@ class Template
         "Dashboard" => array("icon" => "ti-panel", "url" => "", "show" => 1),
         "Staking info" => array("icon" => "fa fa-gavel", "url" => "staking", "show" => 1),
         "Transactions" => array("icon" => "ti-view-list-alt", "url" => "transactions", "show" => 1),
-        "Send" => array("icon" => "fa fa-arrow-circle-right", "url" => "send", "show" => 1),
-        "Receive" => array("icon" => "fa fa-arrow-circle-left", "url" => "receive", "show" => 1),
         "Wallet info" => array("icon" => "ti-wallet", "url" => "walletinfo", "show" => 1),
         "Settings" => array("icon" => "", "url" => "settings", "show" => 0),
         "Connections" => array("icon" => "", "url" => "connections", "show" => 0),
@@ -58,7 +56,7 @@ class Template
         } else {
             $template = TEMPLATES.'dashboard.php';
         }
-
+    
         return $template;
     }
 

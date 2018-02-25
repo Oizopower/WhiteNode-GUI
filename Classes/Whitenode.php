@@ -6,7 +6,7 @@ class Whitenode
     static public $walletSettings;
     static public $clientd;
     static public $db;
-    static public $lang;
+    static public $lang='en_GB';
     static public $currentPage;
     static public $rpcSettings;
     static public $newCoinsYear = 1051200;
@@ -39,7 +39,13 @@ class Whitenode
         self::$settings     = parse_ini_file(ROOT . '/settings.ini');
         self::$lang         = Whitenode::getSiteLanguage();
         self::$currentPage  = addslashes($_SERVER['REQUEST_URI']);
-
+        /*
+        echo "-------------request uri--------------<br>";
+        echo $_SERVER['REQUEST_URI']."<br>";
+        echo "--------------currentpage--------------<br>";
+        echo self::$currentPage."<br>";
+        echo "----------------------------<br>";
+        */
         if(self::$currentPage == "/logout") {
             self::logout();
         }
@@ -141,6 +147,7 @@ class Whitenode
 
     static public function getSiteLanguage()
     {
+         /*
         $locale = self::getLocale();
 
         if (!file_exists(ROOT."/Languages/" . $locale . ".php")) {
@@ -151,10 +158,23 @@ class Whitenode
 
         if(DEVELOP) {
             $language = "en_GB";
+        }*/
+        $language = DataManager::getInstance()->getLanguage();
+        //print_r($password);
+        $language = $language[0]['lang'];
+        return $language ;
+    }
+
+    static public function setSiteLanguage($lang)
+    {
+        if($lang=='en'){
+            $language = "en_GB";
+        }else if($lang=='zh') {
+            $language = "zh_CN";
         }
-
-
-        return $language;
+        DataManager::getInstance()->setLanguage($language);
+        
+        //echo "set lang=".self::$lang;
     }
 
     static public function secondsToTime($seconds)
@@ -285,6 +305,8 @@ class Whitenode
 
     static public function tl($string)
     {
+        //self::$lang ='zh_CN';
+       //echo self::$lang;
         include(ROOT."Languages/".self::$lang.".php");
 
         $string = strtolower(str_replace(" ", "-", $string));

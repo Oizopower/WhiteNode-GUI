@@ -35,11 +35,14 @@
     <!--  jQuery UI     -->
     <link href="/assets/css/jquery-ui.min.css" rel="stylesheet">
 
+    <!--    receive     -->
+    <link href="/assets/css/receive.css" rel="stylesheet">
+    <!--    pagination     -->
+    <link href="/assets/css/pagination.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-<?php
 
-?>
 <div class="wrapper">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
     	<div class="sidebar-wrapper">
@@ -70,7 +73,11 @@
             </div>
         </nav>
         <div class="content">
-            <?php include_once($pageData['template_file']); ?>
+            <?php 
+              
+              //  print_r($pageData['template_file']);
+                include_once($pageData['template_file']); 
+            ?>
         </div>
         <?php include_once("Snippets/Footer.php") ?>
 
@@ -89,6 +96,21 @@
     <!--  jQuery UI     -->
     <script src="/assets/js/jquery-ui.min.js"  crossorigin="anonymous"></script>
 
+    <!-- clipboard -->
+    <script src="/assets/js/clipboard.min.js" type="text/javascript"></script>
+    <!-- pagination -->
+    <script src="/assets/js/pagination.js" type="text/javascript"></script>
+
     <script src="/assets/js/menu.js"></script>
+    <!-- whitenode -->
     <script src="/assets/js/whitenode.js"></script>
+    <!-- receive -->
+    <script src="/assets/js/receive.js"></script>
+    <!-- transactions -->
+    <script src="/assets/js/transactions.js" type="text/javascript"></script>
+    <!-- address -->
+    <script src="/assets/js/address.js" type="text/javascript"></script>
+    <!-- transactions -->
+    <script src="/assets/js/send.js" type="text/javascript"></script>
+
 </html>

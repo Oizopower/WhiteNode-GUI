@@ -16,16 +16,32 @@
             <p><?=tl("Connections")?>: <?=Wallet::$clientd->getconnectioncount()?></p>
         </a>
     </li>
+    
+    
     <li>
-        <a href="/settings">
-            <i class="ti-settings"></i>
-            <p><?=tl("Settings")?></p>
-        </a>
+        <div class="btn-group">
+            <?php
+                $language = DataManager::getInstance()->getLanguage();
+                $lang = $language[0]['lang'];
+                //echo "lang=".$lang;
+                if($lang=='en_GB'){
+                    $lang_img = '/Img/en.png';
+                }else{
+                    $lang_img = '/Img/zh.png';
+                }
+            ?>
+            <button type="button" class="btn btn-default dropdown-toggle"  data-toggle="dropdown">
+            <img src="<?php echo $lang_img;?>" alt="langimg" />
+            <?=tl("Language")?><span class="caret"></span>
+            </button>
+            <ul id='js-language' class="dropdown-menu" role="menu">
+                <li><a href="javascript:;" data-value='zh'><img src="/Img/zh.png" alt="langimg" />&nbsp;<?= tl("Chinese")?></a></li>
+                <li><a href="javascript:;" data-value='en'><img src="/Img/en.png" alt="langimg" />&nbsp;<?= tl("English")?></a></li>
+                
+            </ul>
+        </div>
     </li>
-    <li>
-        <a href="/logout">
-            <i class="ti-user"></i>
-            <p><?=tl("Logout")?></p>
-        </a>
-    </li>
+
 </ul>
+
+

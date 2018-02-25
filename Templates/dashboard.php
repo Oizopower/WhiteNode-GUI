@@ -193,7 +193,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        foreach(Wallet::cleanTransactions(25) as $d) {
+                        foreach(Wallet::getTransactions(25) as $d) {
                             ?>
                             <tr>
                                 <td><?=date("Y-m-d H:i:s",$d['time'])?></td>

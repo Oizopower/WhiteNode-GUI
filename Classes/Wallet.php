@@ -2,11 +2,156 @@
 class Wallet extends Whitenode
 {
     static public $startTime = 1486940013;
-
+   /* static public $testStr ='[
+    {
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    },{
+        "account" : "ky-addr-001",
+        "address" : "WNreTxASynsHNcrnbBsvjKeWurxaHVHWEg",
+        "category" : "receive",
+        "amount" : 100.00000000,
+        "confirmations" : 1137,
+        "blockhash" : "5af660e57285068c7141d053bf03e363e1c279701df568b22c4387d6535206a9",
+        "blockindex" : 2,
+        "blocktime" : 1511951456,
+        "txid" : "200361a33e01379e7837df1a60f23a5331e00e59ac8304f48dbb3390920b9749",
+        "time" : 1511951384,
+        "timereceived" : 1511951384
+    }]';*/
     static public function listTransactions($account = '*', $amount = 20)
     {
         $tx = Whitenode::$clientd->listtransactions($account, $amount);
-
+        //$tx = json_decode(Wallet::$testStr,true);
         if(!empty($tx))
         {
             $tx = array_reverse($tx);
@@ -54,7 +199,7 @@ class Wallet extends Whitenode
             $icon = "success";
         }
 
-
+	echo "walletStatusIcon=".$icon;
         return 'icon-'.$icon;
     }
 
@@ -82,7 +227,7 @@ class Wallet extends Whitenode
         if($info['connections'] > 0) {
             $online = true;
         }
-
+	echo "isWalletOnline=".$online;
         return $online;
     }
 
@@ -121,7 +266,7 @@ class Wallet extends Whitenode
         return 'icon-'.$icon;
     }
 
-    static public function cleanTransactions($amount = 1000000, $account = '*')
+    static public function getTransactions($amount = 1000000, $account = '*')
     {
         $transactions = Wallet::listTransactions($account, $amount);
         $listT = array();
@@ -149,7 +294,7 @@ class Wallet extends Whitenode
     static public function calculateStakePercentage($coinAmount)
     {
         $staking    = Wallet::$clientd->getstakinginfo();
-
+       
         $stakingWeight      = floor($coinAmount);
         $netStakeWeight     = floor($staking['netstakeweight'])/100000000;
 
@@ -199,6 +344,75 @@ class Wallet extends Whitenode
             $return = $data;
         } else {
             $return = array('unlocked' => true);
+        }
+
+        return $return;
+    }
+
+    static public function sendToAddress($address,$amount,$comment,$commentto)
+    {
+        $iamount = (real)$amount;
+        $data = Whitenode::$clientd->sendtoaddress($address,$iamount,$comment,$commentto);
+
+        if(!empty($data)){
+            $return = $data;
+        } else {
+            $return = array('message' => 'success');
+        }
+
+        return $return;
+    }
+
+    static public function signMessage($address,$message)
+    {
+        $data = Whitenode::$clientd->signmessage($address,$message);
+
+        if(!empty($data)){
+            $return = $data;
+        } else {
+            $return = array('message' => 'success');
+        }
+
+        return $return;
+    }
+
+
+    static public function verifyMessage($address,$signature,$message)
+    {
+        $data = Whitenode::$clientd->verifymessage($address,$signature,$message);
+
+        if(!empty($data)){
+            $return = $data;
+        } else {
+            $return = array('message' => 'success');
+        }
+
+        return $return;
+    }
+
+    static public function getNewAddress($label)
+    {
+        
+        $data = Whitenode::$clientd->getnewaddress($label);
+
+        if(!empty($data)){
+            $return = $data;
+        }else{
+            $return = array('message' => 'error');
+        }
+        
+        return $return;
+    }
+
+    static public function getReceivedByAddress($address)
+    {
+
+        $data = Whitenode::$clientd->getreceivedbyaddress($address);
+
+        if(!empty($data)){
+            $return = $data;
+        }else{
+            $return = 0;
         }
 
         return $return;
