@@ -37,6 +37,7 @@
             <ul id='js-language' class="dropdown-menu" role="menu">
                 <li><a href="javascript:;" data-value='zh'><img src="/Img/zh.png" alt="langimg" />&nbsp;<?= tl("Chinese")?></a></li>
                 <li><a href="javascript:;" data-value='en'><img src="/Img/en.png" alt="langimg" />&nbsp;<?= tl("English")?></a></li>
+                <li><a href="javascript:;" data-value='jp'><img src="/Img/en.png" alt="langimg" />&nbsp;<?= tl("Japanese")?></a></li>
                 
             </ul>
         </div>
