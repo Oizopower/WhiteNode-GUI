@@ -27,7 +27,7 @@ $language = array(
 
 
     // Footer
-    "whitecoin"                                                             => "百特币",
+    "whitecoin"                                                             => "白币",
     "website"                                                               => "网站",
     "explorer"                                                              => "浏览器",
     "reddit"                                                                => "Reddit",
@@ -120,5 +120,6 @@ $language = array(
     "change-password"                                                       => "修改密码",
     "language"                                                              => "语言",
     "chinese"                                                               => "中文",
-    "english"                                                               => "英文"
+    "english"                                                               => "英文",
+    "japanese"                                                               => "日文"
 );

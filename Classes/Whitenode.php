@@ -6,7 +6,7 @@ class Whitenode
     static public $walletSettings;
     static public $clientd;
     static public $db;
-    static public $lang='en_GB';
+    static public $lang='ja_JP';
     static public $currentPage;
     static public $rpcSettings;
     static public $newCoinsYear = 1051200;
@@ -169,8 +169,16 @@ class Whitenode
     {
         if($lang=='en'){
             $language = "en_GB";
-        }else if($lang=='zh') {
+        }
+        if($lang=='zh') {
             $language = "zh_CN";
+        }
+        if($lang=='jp') {
+            $language = "ja_JP";
+        }
+
+        if (empty($language)) {
+            return;
         }
         DataManager::getInstance()->setLanguage($language);
         
@@ -305,7 +313,7 @@ class Whitenode
 
     static public function tl($string)
     {
-        //self::$lang ='zh_CN';
+        //self::$lang ='ja_JP';
        //echo self::$lang;
         include(ROOT."Languages/".self::$lang.".php");
 

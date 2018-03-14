@@ -118,6 +118,7 @@ $language = array(
     "received"                                                              => "Receive white coin",
     "language"                                                              => "language",
     "chinese"                                                               => "chinese",
-    "english"                                                               => "english"
+    "english"                                                               => "english",
+    "japanese"                                                               => "Japanese"
 
 );
