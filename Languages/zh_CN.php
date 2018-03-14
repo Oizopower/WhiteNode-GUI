@@ -27,7 +27,7 @@ $language = array(
 
 
     // Footer
-    "whitecoin"                                                             => "百特币",
+    "whitecoin"                                                             => "白币",
     "website"                                                               => "网站",
     "explorer"                                                              => "浏览器",
     "reddit"                                                                => "Reddit",
