@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-ini_set('display_errors','on');
+ini_set('display_errors','Off');
 define('ROOT', $_SERVER['DOCUMENT_ROOT'].'/');
 
 spl_autoload_register(function ($class_name) {
