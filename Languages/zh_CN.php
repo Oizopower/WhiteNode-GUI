@@ -24,6 +24,7 @@ $language = array(
     "reboot"                                                                => "重启",
     "shutdown"                                                              => "关机",
     "update-gui"                                                            => "更新GUI",
+    "terminal"                                                              => "Terminal",
 
 
     // Footer
@@ -42,6 +43,7 @@ $language = array(
     "block-explorer"                                                        => "区块浏览器",
     "coin-marketcap"                                                        => "市场交易量",
     "save-settings"                                                         => "保存设置",
+    "experimental"                                                          => "Experimental",
 
     // Dashboard
     "dashboard"                                                             => "常用信息",

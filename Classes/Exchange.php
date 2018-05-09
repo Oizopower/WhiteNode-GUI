@@ -38,7 +38,6 @@ class Exchange extends Whitenode {
         self::$bitcoinprice = $data['result']['Last'];
 
         return self::$bitcoinprice;
-
     }
 
 
@@ -52,7 +51,7 @@ class Exchange extends Whitenode {
         return number_format(self::$bittrexTicker, 8);
     }
 
-    static private function getData($url)
+    static protected function getData($url)
     {
         if(isset(self::$externalData[$url]) && !empty(self::$externalData[$url]))
         {
@@ -60,12 +59,13 @@ class Exchange extends Whitenode {
         }
         else
         {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL, $url);
-            $result = curl_exec($ch);
-            curl_close($ch);
+            $options = array(
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_URL => $url,
+            );
+
+            $result = parent::getData($options);
 
             self::$externalData[$url] = $result;
         }
@@ -77,8 +77,14 @@ class Exchange extends Whitenode {
 
     static public function getCoinMarketCap()
     {
-        $data = self::getData(Whitenode::$settings['coinmarketcap']);
+        $options = array(
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_URL => Whitenode::$settings['coinmarketcap'],
+        );
+
+        $data = parent::getData($options);
+
         return array_shift($data);
     }
-
 }

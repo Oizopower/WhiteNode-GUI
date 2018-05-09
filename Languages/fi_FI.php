@@ -24,6 +24,7 @@ $language = array(
     "reboot"                                                                => "Reboot",                                // untranslated
     "shutdown"                                                              => "shutdown",                              // untranslated
     "update-gui"                                                            => "Update GUI",                            // untranslated
+    "terminal"                                                              => "Terminal",
 
     // Footer
     "whitecoin"                                                             => "Whitecoin",
@@ -41,6 +42,7 @@ $language = array(
     "block-explorer"                                                        => "lohko explorer",
     "coin-marketcap"                                                        => "kolikon markkina-arvo",
     "save-settings"                                                         => "tallenna asetukset",
+    "experimental"                                                          => "Experimental",
 
     // Dashboard
     "dashboard"                                                             => "Koelauta",

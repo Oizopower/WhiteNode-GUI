@@ -24,6 +24,7 @@ $language = array(
     "reboot"                                                                => "Reboot",
     "shutdown"                                                              => "shutdown",
     "update-gui"                                                            => "Update GUI",
+    "terminal"                                                              => "Terminal",
 
 
     // Footer
@@ -42,6 +43,7 @@ $language = array(
     "block-explorer"                                                        => "block explorer",
     "coin-marketcap"                                                        => "coin marketcap",
     "save-settings"                                                         => "save settings",
+    "experimental"                                                          => "Experimental",
 
     // Dashboard
     "dashboard"                                                             => "Dashboard",

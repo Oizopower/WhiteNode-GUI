@@ -11,12 +11,14 @@ class Whitenode
     static public $rpcSettings;
     static public $newCoinsYear = 1051200;
 
-
     static public function init()
     {
         $defines = array
         (
-            'WALLET' => '/home/pi/.whitecoin-xwc/',
+            'REBOOTFILE' => '/var/www/public/.reboot',
+            'DAEMONFILE' => '/usr/local/bin/whitecoind',
+            'WALLETDATADIR' => '/home/pi/.whitecoin-xwc/',
+            'GITHUBRELEASES' => 'https://api.github.com/repos/Whitecoin-org/whitecoin/releases',
             'ROOT' => $_SERVER['DOCUMENT_ROOT'] . "/",
             'TEMPLATES' => $_SERVER['DOCUMENT_ROOT'] . "/Templates/",
             'SNIPPETS' => $_SERVER['DOCUMENT_ROOT'] . "/Snippets/",
@@ -36,6 +38,8 @@ class Whitenode
             self::$walletSettings = parse_ini_file(getenv('appdata') . "\whitecoin-xwc\whitecoin.conf");
         }
 
+        self::checkForUpgrade();
+
         self::$settings     = parse_ini_file(ROOT . '/settings.ini');
         self::$lang         = Whitenode::getSiteLanguage();
         self::$currentPage  = addslashes($_SERVER['REQUEST_URI']);
@@ -45,6 +49,13 @@ class Whitenode
         }
 
         $loggedIn = self::checkLogin();
+        $needReboot = self::checkReboot();
+
+        if($needReboot)
+        {
+            include(ROOT.'reboot.php');
+            exit;
+        }
 
         if(!$loggedIn)
         {
@@ -75,6 +86,23 @@ class Whitenode
         self::$clientd      = new jsonRPCClient("http://" . self::$rpcSettings['rpcuser'] . ":" . self::$rpcSettings['rpcpassword'] . "@" . self::$rpcSettings['rpchost'] . ":15815");
     }
 
+    static private function checkForUpgrade()
+    {
+        $file = "/home/pi/scripts/firstboot";
+        $check = "rm -f ".REBOOTFILE;
+
+        if(file_exists($file)) {
+            $data = file_get_contents($file);
+
+            if(!stristr($data,$check))
+            {
+                $write = PHP_EOL.'if [ -f '.REBOOTFILE.' ]; then'.PHP_EOL.'    '.$check.PHP_EOL."fi".PHP_EOL;
+                file_put_contents($file, $write, FILE_APPEND | LOCK_EX);
+            }
+        }
+
+    }
+
     static private function createPassword($pass)
     {
         if(empty(self::$rpcSettings))
@@ -96,10 +124,121 @@ class Whitenode
         return $return;
     }
 
+    static protected function reboot()
+    {
+        if(!file_exists(REBOOTFILE))
+        {
+            $fp = fopen(REBOOTFILE,"wb");
+            fwrite($fp,date("YmdHis"));
+            fclose($fp);
+
+            sleep(1);
+        }
+
+        header("Location: /");
+    }
+
+    static protected function service($action)
+    {
+        return shell_exec("sudo systemctl ".$action." whitecoin");
+    }
+
+    static public function updateWallet()
+    {
+        $latestRelease = self::getlatestWhitecoin();
+
+        if($latestRelease)
+        {
+            set_time_limit(0);
+
+            self::service('stop');
+
+            shell_exec("sudo mv ".DAEMONFILE." ".DAEMONFILE.".".date("YmdHis"));
+
+            $fileName = "/home/pi/".basename($latestRelease);
+            $options = array(
+                CURLOPT_FILE    => fopen($fileName, 'w'),
+                CURLOPT_TIMEOUT =>  28800, // set this to 8 hours so we dont timeout on big files
+                CURLOPT_URL     => $latestRelease,
+            );
+
+            $result = self::getData($options);
+
+            shell_exec("sudo tar xf ".$fileName." -C /usr/local/bin/");
+            shell_exec("sudo chmod +x ".DAEMONFILE);
+            unlink($fileName);
+            self::reboot();
+        }
+    }
+
+    static private function getlatestWhitecoin()
+    {
+        $options = array(
+            CURLOPT_SSL_VERIFYPEER    => false,
+            CURLOPT_RETURNTRANSFER    => true,
+            CURLOPT_URL               => GITHUBRELEASES,
+        );
+
+        $result = self::getData($options);
+        $data = json_decode($result, true);
+
+        foreach($data as $dataResult)
+        {
+            foreach($dataResult['assets'] as $assets)
+            {
+                if(stristr($assets['browser_download_url'],'whitenode'))
+                {
+                    return $assets['browser_download_url'];
+                }
+            }
+        }
+    }
+
+    static public function deleteBlockFiles()
+    {
+        self::service('stop');
+        self::recurseRmdir(WALLETDATADIR);
+    }
+
+    static private function recurseRmdir($dir)
+    {
+        $files = array_diff(scandir($dir), array('.','..','whitecoin.conf', 'wallet.dat'));
+
+        foreach ($files as $file) {
+            (is_dir("$dir/$file")) ? self::recurseRmdir("$dir/$file") : unlink("$dir/$file");
+        }
+
+        if($dir != WALLETDATADIR) {
+            return rmdir($dir);
+        } else {
+            self::reboot();
+        }
+    }
+
+    static protected function getData($options)
+    {
+        $options += array(
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13',
+            CURLOPT_FOLLOWLOCATION     => true,
+        );
+
+        $ch = curl_init();
+        curl_setopt_array($ch, $options);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        return $result;
+    }
+
     static public function logout()
     {
         unset($_SESSION['is_logged_in']);
         header("Location: /");
+    }
+
+    static private function checkReboot()
+    {
+        return (file_exists(REBOOTFILE)) ? true : false;
     }
 
     static public function checkLogin()
@@ -228,6 +367,10 @@ class Whitenode
             $array['app_enable_login'] = 0;
         }
 
+        if(!isset($array["app_enable_terminal"])) {
+            $array['app_enable_terminal'] = 0;
+        }
+
 
         // Generate Strong password:
         if(empty($array['app_password']))
@@ -237,7 +380,6 @@ class Whitenode
 
             if(self::countBits($password) != 256)
             {
-                debug($_POST['app_password']);
                 $array['app_password'] = self::createPassword($password);
             }
             else
