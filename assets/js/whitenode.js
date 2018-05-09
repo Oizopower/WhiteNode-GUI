@@ -95,7 +95,11 @@ $(document).ready(function(){
 
         var $success = function ($json){};
 
-        action($data, $success, 'json');
+        var result = confirm("Are you sure you want to reboot?");
+        if (result) {
+            action($data, $success, 'json');
+        }
+
         e.preventDefault();
     });
 
@@ -107,7 +111,11 @@ $(document).ready(function(){
 
         var $success = function ($json){};
 
-        action($data, $success, 'json');
+        var result = confirm("Are you sure you want to shutdown?");
+        if (result) {
+            action($data, $success, 'json');
+        }
+
         e.preventDefault();
     });
 
