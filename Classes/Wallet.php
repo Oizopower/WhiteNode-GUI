@@ -167,10 +167,16 @@ class Wallet extends Whitenode
     static public function actionEncrypt($request)
     {
         $encryptPassword = addslashes($request['encrypt']);
+        $encryptPasswordVerify = addslashes($request['encryptVerify']);
 
         if(empty($encryptPassword))
         {
             $request['message'] = tl('Password cannot be empty');
+            $return = $request;
+        }
+        elseif($encryptPassword != $encryptPasswordVerify)
+        {
+            $request['message'] = tl('Password does not match');
             $return = $request;
         }
         else

@@ -10,13 +10,17 @@
                 <form role="form">
                     <div class="form-group">
                         <label for="recipient-name" class="control-label">Password:</label>
-                        <input type="password" class="form-control" id="encryptpassword">
+                        <input type="password" class="form-control" id="js--encryptpassword">
                     </div>
                 </form>
+                <div class="form-group">
+                    <label for="recipient-verify" class="control-label"><?=tl("verify password")?>:</label>
+                    <input type="password" class="form-control" id="js--encryptpassword-verify">
+                </div
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="submitencrypt">Send</button>
+                <button type="button" class="btn btn-primary" id="js--submitencrypt">Send</button>
             </div>
         </div>
     </div>

@@ -59,16 +59,18 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
-    $(document).on("click",'#submitencrypt',function(e)
+    $(document).on("click",'#js--submitencrypt',function(e)
     {
-        var $formData = $("#encryptpassword").val();
+        var $password = $("#js--encryptpassword").val();
+        var $passwordverify = $("#js--encryptpassword-verify").val();
 
-        if($("#encryptpassword").val() != undefined)
+        if($("#js--encryptpassword").val() != undefined)
         {
 
             var $data = {
                 action:  'encrypt',
-                encrypt: $formData
+                encrypt: $password,
+                encryptVerify: $passwordverify
             };
 
             var $success = function ($json)
