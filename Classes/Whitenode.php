@@ -81,6 +81,9 @@ class Whitenode
                 exit;
             }
         }
+        if(self::$currentPage == "/login" && isset($_SESSION['is_logged_in'])) {
+            header("Location: /");
+        }
 
         self::$rpcSettings  = self::getRPCSettings();
         self::$clientd      = new jsonRPCClient("http://" . self::$rpcSettings['rpcuser'] . ":" . self::$rpcSettings['rpcpassword'] . "@" . self::$rpcSettings['rpchost'] . ":15815");
