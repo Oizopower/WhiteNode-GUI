@@ -22,6 +22,7 @@ class Whitenode
             'ROOT' => $_SERVER['DOCUMENT_ROOT'] . "/",
             'TEMPLATES' => $_SERVER['DOCUMENT_ROOT'] . "/Templates/",
             'SNIPPETS' => $_SERVER['DOCUMENT_ROOT'] . "/Snippets/",
+            'DISKTHRESHOLD' => 80,
             'DEVELOP' => false,
         );
 
@@ -81,6 +82,7 @@ class Whitenode
                 exit;
             }
         }
+
         if(self::$currentPage == "/login" && isset($_SESSION['is_logged_in'])) {
             header("Location: /");
         }

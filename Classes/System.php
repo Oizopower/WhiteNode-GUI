@@ -69,4 +69,20 @@ Class System extends Whitenode
 
         return $result;
     }
+    static public function getDiskUsage()
+    {
+        $df=disk_free_space("/");
+        $dt=disk_total_space("/");
+        $du=$dt - $df;
+        $dp=sprintf('%.2f',($du / $dt) * 100);
+        $df=Whitenode::humanSize($df);
+        $du=Whitenode::humanSize($du);
+        $dt=Whitenode::humanSize($dt);
+
+        return array(
+            'percentage' => $dp,
+            'free' => $df,
+            'message' => "NOTICE: Your disk is nearing capacity, it is currently ".$dp."% full, with ".$df." free space remaining"
+        );
+    }
 }

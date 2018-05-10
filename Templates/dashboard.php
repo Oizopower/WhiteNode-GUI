@@ -3,6 +3,7 @@
     $blocks = Whitenode::$clientd->getblockcount();
     $peers = Whitenode::$clientd->getpeerinfo();
     $info = Whitenode::$clientd->getinfo();
+    $diskUsage = System::getDiskUsage();
 
     $listNode = 0;
     $percetage = 0;
@@ -43,6 +44,35 @@
         </div>
     </div>
     <?php } ?>
+
+    <?php
+    if($diskUsage['percentage'] > DISKTHRESHOLD)
+    {
+        ?>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="Progress">
+                        <div class="header">
+                            <i class="ti-harddrive"></i>
+                            <?=tl("Disk warning")?>:
+                            <div id="js--disk"><strong><?=$diskUsage['message']?>%</strong></div>
+                        </div>
+                        <div class="content">
+                            <progress max="100" value="<?=$diskUsage['percentage']?>" class="Progress-main">
+                                <div class="Progress-bar" role="presentation">
+                                    <span class="Progress-value" style="width: <?=$diskUsage['percentage']?>%;"> </span>
+                                </div>
+                            </progress>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+
     <div class="row">
         <div class="col-lg-3 col-sm-6">
             <?php /* <div class="card">
