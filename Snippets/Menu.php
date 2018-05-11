@@ -30,9 +30,6 @@
         if(!Wallet::isWalletEncrypted())
         {
             ?>
-            <li>
-                &nbsp;
-            </li>
             <li class="js--encrypt-button">
                 <a href="" data-toggle="modal" data-target="#encrypt" data-title="<?=tl("Encrypt your wallet")?>">
                     <i class="fa fa-gavel"></i>
@@ -44,9 +41,6 @@
         else if(!Wallet::isWalletStaking())
         {
         ?>
-            <li>
-                &nbsp;
-            </li>
             <li class="js--unlock-staking-button">
                 <a href="" data-toggle="modal" data-target="#stakepassword" data-title="<?=tl("Unlock wallet for staking")?>">
                     <i class="fa fa-gavel"></i>

@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label for="recipient-verify" class="control-label"><?=tl("verify password")?>:</label>
                     <input type="password" class="form-control" id="js--encryptpassword-verify">
-                </div
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
