@@ -7,13 +7,13 @@
         </a>
     </li>
     <li>
-        <a href="#" id="js--reboot">
+        <a href="#" id="js--reboot" data-title="Reboot" data-content="Are you sure you want to reboot?">
             <i class="fa fa-refresh icon-warning"></i>
             <p><?=tl("Reboot")?></p>
         </a>
     </li>
     <li>
-        <a href="#" id="js--shutdown">
+        <a href="#" id="js--shutdown" data-title="Shutdown" data-content="Are you sure you want to shutdown?">
             <i class="fa fa-power-off icon-danger"></i>
             <p><?=tl("Shutdown")?></p>
         </a>

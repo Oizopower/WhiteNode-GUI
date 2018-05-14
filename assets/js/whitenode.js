@@ -91,32 +91,24 @@ $(document).ready(function(){
 
     $(document).on("click",'#js--reboot',function(e)
     {
-        var $data = {
-            action:  'reboot'
-        };
+        var $questionBlock = $('#question');
+        $questionBlock.modal('toggle');
+        $questionBlock.find('.modal-title').text($(this).data('title'));
+        $questionBlock.find('.modal-body').text($(this).data('content'));
 
-        var $success = function ($json){};
-
-        var result = confirm("Are you sure you want to reboot?");
-        if (result) {
-            action($data, $success, 'json');
-        }
+        $questionBlock.find('#modal_question_submit').attr("onclick","doReboot();");
 
         e.preventDefault();
     });
 
     $(document).on("click",'#js--shutdown',function(e)
     {
-        var $data = {
-            action:  'shutdown'
-        };
+        var $questionBlock = $('#question');
+        $questionBlock.modal('toggle');
+        $questionBlock.find('.modal-title').text($(this).data('title'));
+        $questionBlock.find('.modal-body').text($(this).data('content'));
 
-        var $success = function ($json){};
-
-        var result = confirm("Are you sure you want to shutdown?");
-        if (result) {
-            action($data, $success, 'json');
-        }
+        $questionBlock.find('#modal_question_submit').attr("onclick","doShutdown();");
 
         e.preventDefault();
     });
@@ -172,6 +164,26 @@ $(document).ready(function(){
             cache:    false,
             success:  $success
         });
+    }
+
+    function doShutdown()
+    {
+        var $data = {
+            action:  'shutdown'
+        };
+
+        var $success = function ($json){};
+        action($data, $success, 'json');
+    }
+
+    function doReboot()
+    {
+        var $data = {
+            action:  'reboot'
+        };
+
+        var $success = function ($json){};
+        action($data, $success, 'json');
     }
 
 });
