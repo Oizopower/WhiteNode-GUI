@@ -96,7 +96,7 @@ $(document).ready(function(){
         $questionBlock.find('.modal-title').text($(this).data('title'));
         $questionBlock.find('.modal-body').text($(this).data('content'));
 
-        $questionBlock.find('#modal_question_submit').attr("onclick","doReboot();");
+        $questionBlock.find('#modal_question_submit').attr("id","doReboot");
 
         e.preventDefault();
     });
@@ -108,7 +108,7 @@ $(document).ready(function(){
         $questionBlock.find('.modal-title').text($(this).data('title'));
         $questionBlock.find('.modal-body').text($(this).data('content'));
 
-        $questionBlock.find('#modal_question_submit').attr("onclick","doShutdown();");
+        $questionBlock.find('#modal_question_submit').attr("id","doShutdown");
 
         e.preventDefault();
     });
@@ -166,7 +166,7 @@ $(document).ready(function(){
         });
     }
 
-    function doShutdown()
+    $(document).on("click",'#doShutdown',function(e)
     {
         var $data = {
             action:  'shutdown'
@@ -174,9 +174,9 @@ $(document).ready(function(){
 
         var $success = function ($json){};
         action($data, $success, 'json');
-    }
+    });
 
-    function doReboot()
+    $(document).on("click",'#doReboot',function(e)
     {
         var $data = {
             action:  'reboot'
@@ -184,6 +184,6 @@ $(document).ready(function(){
 
         var $success = function ($json){};
         action($data, $success, 'json');
-    }
+    });
 
 });
