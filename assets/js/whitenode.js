@@ -25,7 +25,6 @@ $(document).ready(function(){
 
     }, 60000);
 
-
     $(document).on('show.bs.modal', function(event){
         var button = $(event.relatedTarget);  // Button that triggered the modal
         var titleData = button.data('title'); // Extract value from data-* attributes
@@ -89,26 +88,50 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
-    $(document).on("click",'#js--reboot',function(e)
+    $(document).on("click",'.js--doAction',function(e)
     {
         var $questionBlock = $('#question');
+        var $buttonAction = $(this).data('action');
+
         $questionBlock.modal('toggle');
         $questionBlock.find('.modal-title').text($(this).data('title'));
         $questionBlock.find('.modal-body').text($(this).data('content'));
 
-        $questionBlock.find('#modal_question_submit').attr("id","doReboot");
+        $questionBlock.find('#modal_question_submit').attr("data-action",$buttonAction);
 
         e.preventDefault();
     });
 
-    $(document).on("click",'#js--shutdown',function(e)
+    $(document).on("click",'#modal_question_submit',function(e)
     {
-        var $questionBlock = $('#question');
-        $questionBlock.modal('toggle');
-        $questionBlock.find('.modal-title').text($(this).data('title'));
-        $questionBlock.find('.modal-body').text($(this).data('content'));
+        $submitAction = $(this).data('action');
 
-        $questionBlock.find('#modal_question_submit').attr("id","doShutdown");
+        var $data = {
+            action:  $submitAction
+        };
+
+        var $success = function ($json)
+        {
+            if($json.finished === 1)
+            {
+                if($json.message !== undefined)
+                {
+                    $(document).find(".modal-body:visible").text($json.message);
+                }
+
+                if($json.action !== undefined)
+                {
+                    switch($json.action) {
+                        case "refresh":
+                            location.reload(true);
+                        break;
+                    }
+                }
+
+            }
+        };
+
+        action($data, $success, 'json');
 
         e.preventDefault();
     });
@@ -165,25 +188,4 @@ $(document).ready(function(){
             success:  $success
         });
     }
-
-    $(document).on("click",'#doShutdown',function(e)
-    {
-        var $data = {
-            action:  'shutdown'
-        };
-
-        var $success = function ($json){};
-        action($data, $success, 'json');
-    });
-
-    $(document).on("click",'#doReboot',function(e)
-    {
-        var $data = {
-            action:  'reboot'
-        };
-
-        var $success = function ($json){};
-        action($data, $success, 'json');
-    });
-
 });

@@ -7,19 +7,19 @@
         </a>
     </li>
     <li>
-        <a href="#" id="js--reboot" data-title="Reboot" data-content="Are you sure you want to reboot?">
+        <a href="#" class="js--doAction" data-action="reboot" data-title="Reboot" data-content="Are you sure you want to reboot?">
             <i class="fa fa-refresh icon-warning"></i>
             <p><?=tl("Reboot")?></p>
         </a>
     </li>
     <li>
-        <a href="#" id="js--shutdown" data-title="Shutdown" data-content="Are you sure you want to shutdown?">
+        <a href="#" class="js--doAction" data-action="shutdown" data-title="Shutdown" data-content="Are you sure you want to shutdown?">
             <i class="fa fa-power-off icon-danger"></i>
             <p><?=tl("Shutdown")?></p>
         </a>
     </li>
     <li>
-        <a href="/Operators/Action.php?action=update">
+        <a href="#" class="js--doAction" data-action="updateGUI" data-title="Update" data-content="Are you sure you want to update the GUI?">
             <i class="fa fa-cog icon-success"></i>
             <p><?=tl("Update GUI")?></p>
         </a>
@@ -53,3 +53,6 @@
     ?>
 
 </ul>
+<div class="discord-widget">
+    <a href="https://discord.gg/GbpdbMt"> <img alt="Logo" src="https://discordapp.com/api/guilds/370118731151441921/widget.png?style=banner2" width="260px"></a>
+</div>

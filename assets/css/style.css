@@ -9,14 +9,17 @@
 .Progress-main::-moz-progress-bar {
     background: #71cbf4;
 }
+
 /*For webkit browsers*/
 .Progress-main::-webkit-progress-bar {
     background: #F2F2F2;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
 }
+
 .Progress-main::-webkit-progress-value {
     background: #71cbf4;
 }
+
 /*For IE*/
 .Progress-main::-ms-fill {
     background: #17BAB3;
@@ -28,6 +31,7 @@
     background-color: #F2F2F2;
     height: 0.3em;
 }
+
 .Progress-value {
     background-color: #71cbf4;
     display: block;
@@ -36,4 +40,11 @@
 
 .Progress .header p {
     float: left;
+}
+
+.discord-widget {
+    width: 260px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
 }
