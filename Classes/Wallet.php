@@ -210,6 +210,12 @@ class Wallet extends Whitenode
         return $return;
     }
 
+    static public function getAccounts()
+    {
+        $accounts = Whitenode::$clientd->listaddressgroupings();
+        return $accounts;
+    }
+
     static public function actionUpdateSync()
     {
 
