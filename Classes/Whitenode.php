@@ -22,6 +22,7 @@ class Whitenode
             'ROOT' => $_SERVER['DOCUMENT_ROOT'] . "/",
             'TEMPLATES' => $_SERVER['DOCUMENT_ROOT'] . "/Templates/",
             'SNIPPETS' => $_SERVER['DOCUMENT_ROOT'] . "/Snippets/",
+            'LANGUAGES' => $_SERVER['DOCUMENT_ROOT'] . "/Languages/",
             'DISKTHRESHOLD' => 80,
             'DEVELOP' => false,
         );
@@ -283,6 +284,21 @@ class Whitenode
         return $locale;
     }
 
+    static public function setSiteLanguage($data)
+    {
+        if (!file_exists(ROOT."/Languages/" . $data['language']. ".php")) {
+            $language = "en_GB";
+        } else {
+            $language = $data['language'];
+        }
+
+        setcookie("WhiteNodeLanguage", "", time()-3600,'/');
+        setcookie("WhiteNodeLanguage",$language,time() + (10 * 365 * 24 * 60 * 60),'/');
+
+        $return = array('finished' => 1, 'action' => 'refresh');
+        return $return;
+    }
+
     static public function getSiteLanguage()
     {
         $locale = self::getLocale();
@@ -293,10 +309,14 @@ class Whitenode
             $language = $locale;
         }
 
-        if(DEVELOP) {
-            $language = "en_GB";
+        if(!isset($_COOKIE["WhiteNodeLanguage"]))
+        {
+            setcookie("WhiteNodeLanguage",$language,time() + (10 * 365 * 24 * 60 * 60),'/');
         }
 
+        if(isset($_COOKIE["WhiteNodeLanguage"])) {
+            $language = $_COOKIE["WhiteNodeLanguage"];
+        }
 
         return $language;
     }

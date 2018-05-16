@@ -9,6 +9,13 @@ $language = array(
     "settings"                                                              => "Settings",
     "logout"                                                                => "Logout",
 
+    // Languages
+    "nl_nl"                                                                 => "Dutch",
+    "fi_fi"                                                                 => "Finnish",
+    "en_gb"                                                                 => "English",
+    "zh_cn"                                                                 => "Chinese",
+    "ja_jp"                                                                 => "Japanese",
+
     // Menu
     "staking-info"                                                          => "Staking info",
     "transactions"                                                          => "Transactions",

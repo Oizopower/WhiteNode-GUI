@@ -36,6 +36,9 @@ switch($action)
         exec('sudo reboot');
         exit;
     break;
+    case "changelanguage":
+        $return = Whitenode::setSiteLanguage($_REQUEST);
+    break;
     case "shutdown":
 	    exec('sudo halt');
         exit;

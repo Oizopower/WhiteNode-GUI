@@ -58,6 +58,32 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
+    $(document).on("click",'#js--language a',function(e)
+    {
+        var $data = {
+            action:  'changelanguage',
+            language:  $(this).attr('data-value')
+        };
+
+        var $success = function ($json)
+        {
+            if($json.finished === 1)
+            {
+                if($json.action !== undefined)
+                {
+                    switch($json.action) {
+                        case "refresh":
+                            location.reload(true);
+                        break;
+                    }
+                }
+            }
+        };
+
+        action($data, $success, 'json');
+        e.preventDefault();
+    });
+
     $(document).on("click",'#js--submitencrypt',function(e)
     {
         var $password = $("#js--encryptpassword").val();
