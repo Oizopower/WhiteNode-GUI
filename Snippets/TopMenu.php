@@ -42,6 +42,7 @@
                 <?php
                     foreach($languageFiles as $languageFile) {
                         $languageFile = str_replace(".php","",$languageFile);
+                        if($languageFile === $currentLanguage) continue;
                         ?>
                             <li><a href="#" data-value='<?=$languageFile?>'><img src="/Img/Flags/<?=$languageFile?>.png" />&nbsp;<?= tl($languageFile)?></a></li>
                         <?php
