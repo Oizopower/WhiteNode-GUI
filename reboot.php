@@ -49,20 +49,22 @@
         .red {color:#d9534f;}
     </style>
     <script type="text/javascript">
-        function loadDomain() {
+        /*function loadDomain() {
             var display = document.getElementById("display-domain");
             display.innerHTML = document.domain;
-        }
+        }*/
     </script>
 </head>
-<body onload="javascript:loadDomain();">
+<body>
 <!-- Error Page Content -->
 <div class="container">
     <!-- Jumbotron -->
     <div class="jumbotron">
         <h1><i class="fa fa-cogs green"></i> Reboot required</h1>
         <p class="lead">Whitenode needs a reboot, this is required to get the system running optimal again.</p>
-        <a href="javascript:document.location.reload(true);" class="btn btn-default btn-lg text-center"><span class="green">Reboot WhiteNode</span></a>
+        <a href="#" class="js--doAction btn btn-default btn-lg text-center" data-action="reboot" data-title="Reboot" data-content="Are you sure you want to reboot?">
+            <span class="green">Reboot WhiteNode</span>
+        </a>
     </div>
 </div>
 
@@ -85,8 +87,10 @@
         </div>
     </div>
 </div>
+<?php include_once("Snippets/Modals.php") ?>
 </body>
 <!--   Core JS Files   -->
 <script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/js/whitenode.js"></script>
 </html>
