@@ -162,18 +162,6 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
-    $(document).on("click",'#js--download',function(e)
-    {
-        var $data = {
-            action:  'download'
-        };
-
-        var $success = function ($json){};
-
-        action($data, $success, 'json');
-        e.preventDefault();
-    });
-
     // Stake calculator
     var delay = (function(){
         var timer = 0;

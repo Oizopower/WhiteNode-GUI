@@ -5,7 +5,8 @@ $ajaxExemption = array(
     "download",
     "update",
     "updatewallet",
-    "deleteblockchain"
+    "deleteblockchain",
+    "backupwallet"
 );
 
 if(!in_array($action, $ajaxExemption))
@@ -43,11 +44,14 @@ switch($action)
 	    exec('sudo halt');
         exit;
     break;
+    case "backupwallet":
+        $return = Wallet::backupDownloadWallet();
+    break;
     case "updatewallet":
-        $return = Wallet::updateWallet();
+        $return = Whitenode::updateWallet();
     break;
     case "deleteblockchain":
-        $return = Wallet::deleteBlockFiles();
+        $return = Whitenode::deleteBlockFiles();
     break;
     case "updateGUI":
         $return = shell_exec("cd /var/www/public && /usr/bin/git pull  2>&1");

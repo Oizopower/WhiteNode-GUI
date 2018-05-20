@@ -19,10 +19,12 @@ class Whitenode
             'DAEMONFILE' => '/usr/local/bin/whitecoind',
             'WALLETDATADIR' => '/home/pi/.whitecoin-xwc/',
             'GITHUBRELEASES' => 'https://api.github.com/repos/Whitecoin-org/whitecoin/releases',
+            'GITHUBGUIRELEASES' => 'https://api.github.com/repos/Oizopower/WhiteNode-GUI/releases',
             'ROOT' => $_SERVER['DOCUMENT_ROOT'] . "/",
             'TEMPLATES' => $_SERVER['DOCUMENT_ROOT'] . "/Templates/",
             'SNIPPETS' => $_SERVER['DOCUMENT_ROOT'] . "/Snippets/",
             'LANGUAGES' => $_SERVER['DOCUMENT_ROOT'] . "/Languages/",
+            'HOMEDIR'   => "/home/pi/",
             'DISKTHRESHOLD' => 80,
             'DEVELOP' => false,
         );

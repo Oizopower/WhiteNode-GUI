@@ -121,6 +121,22 @@ class Wallet extends Whitenode
         return 'icon-'.$icon;
     }
 
+    static public function backupDownloadWallet()
+    {
+
+        $backupFile = HOMEDIR."wallet.dat";
+        $backup    = Wallet::$clientd->backupwallet($backupFile);
+
+        if( !file_exists($backupFile) ) die("File not found");
+        // Force the download
+        header("Content-Disposition: attachment; filename=" . basename($backupFile) . "");
+        header("Content-Length: " . filesize($backupFile));
+        header("Content-Type: application/octet-stream;");
+        readfile($backupFile);
+
+        unlink($backupFile);
+    }
+
     static public function cleanTransactions($amount = 1000000, $account = '*')
     {
         $transactions = Wallet::listTransactions($account, $amount);
