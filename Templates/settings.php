@@ -67,14 +67,6 @@ $checked_console = (isset(Whitenode::$settings['app_enable_console']) && Whiteno
                     <div class="row">
                         <div class="col-lg-2 col-sm-4">
                             <div class="content">
-                                <form action="/webconsole.php" method="get" target="_blank">
-                                    <button type="update" class="btn btn-primary"><?= tl("Terminal") ?></button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-sm-4">
-                            <div class="content">
                                 <form action="/Operators/Action.php" method="get">
                                     <input type="hidden" name="action" value="updatewallet">
                                     <button type="update" class="btn btn-primary"><?= tl("Update wallet") ?></button>
