@@ -51,7 +51,7 @@ class Exchange extends Whitenode {
         return number_format(self::$bittrexTicker, 8);
     }
 
-    static protected function getData($url)
+    static public function getData($url)
     {
         if(isset(self::$externalData[$url]) && !empty(self::$externalData[$url]))
         {
