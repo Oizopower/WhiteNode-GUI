@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/Assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/Assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>WhiteNode</title>
@@ -11,9 +11,9 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Assets/css/font-awesome.min.css" rel="stylesheet">
     <!-- Bootstrap core CSS     -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Assets/css/bootstrap.min.css" rel="stylesheet" />
 
 
 <style>
@@ -90,7 +90,7 @@
 <?php include_once("Snippets/Modals.php") ?>
 </body>
 <!--   Core JS Files   -->
-<script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/assets/js/whitenode.js"></script>
+<script src="/Assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/Assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Assets/js/whitenode.js"></script>
 </html>

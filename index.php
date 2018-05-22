@@ -14,26 +14,26 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="/assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="/Assets/css/animate.min.css" rel="stylesheet"/>
 
     <!--  WhiteNode base CSS    -->
-    <link href="/assets/css/whitenode_base.css" rel="stylesheet"/>
+    <link href="/Assets/css/whitenode_base.css" rel="stylesheet"/>
 
 
     <!--  CSS    -->
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <link href="/assets/css/login.css" rel="stylesheet" />
+    <link href="/Assets/css/style.css" rel="stylesheet" />
+    <link href="/Assets/css/login.css" rel="stylesheet" />
 
     <!--  Icons     -->
-    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/assets/css/themify-icons.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/>
+    <link href="/Assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Assets/css/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/datatables.min.css"/>
 
     <!--  jQuery UI     -->
-    <link href="/assets/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="/Assets/css/jquery-ui.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 </head>
 <body>
@@ -80,17 +80,17 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/Assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="/Assets/js/bootstrap.min.js" type="text/javascript"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="/assets/js/bootstrap-notify.js"></script>
+    <script src="/Assets/js/bootstrap-notify.js"></script>
 
     <!--  jQuery UI     -->
-    <script src="/assets/js/jquery-ui.min.js"  crossorigin="anonymous"></script>
+    <script src="/Assets/js/jquery-ui.min.js" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/Assets/js/datatables.min.js"></script>
 
-    <script src="/assets/js/menu.js"></script>
-    <script src="/assets/js/whitenode.js"></script>
+    <script src="/Assets/js/menu.js"></script>
+    <script src="/Assets/js/whitenode.js"></script>
 </html>

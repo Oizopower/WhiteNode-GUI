@@ -31,12 +31,12 @@
 
                                     if((strpos($ip, ":") === false)) {
                                         //ipv4
-                                        $gi = geoip_open(ROOT."assets/geoip/GeoIP.dat",GEOIP_STANDARD);
+                                        $gi = geoip_open(ROOT."Assets/geoip/GeoIP.dat",GEOIP_STANDARD);
                                         $country =  geoip_country_name_by_addr($gi, $ip);
                                     }
                                     else {
                                         //ipv6
-                                        $gi = geoip_open(ROOT."assets/geoip/GeoIPv6.dat",GEOIP_STANDARD);
+                                        $gi = geoip_open(ROOT."Assets/geoip/GeoIPv6.dat",GEOIP_STANDARD);
                                         $country = geoip_country_name_by_addr_v6($gi, $ip);
                                     }
                                     ?>

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/Assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/Assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>WhiteNode</title>
@@ -12,12 +12,12 @@
     <meta name="viewport" content="width=device-width" />
 
     <!-- Bootstrap core CSS     -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Assets/css/bootstrap.min.css" rel="stylesheet" />
     <!--  WhiteNode base CSS    -->
-    <link href="/assets/css/whitenode_base.css" rel="stylesheet"/>
+    <link href="/Assets/css/whitenode_base.css" rel="stylesheet"/>
 
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <link href="/assets/css/login.css" rel="stylesheet" />
+    <link href="/Assets/css/style.css" rel="stylesheet" />
+    <link href="/Assets/css/login.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -54,6 +54,6 @@
 </div>
 </body>
 <!--   Core JS Files   -->
-<script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/Assets/js/bootstrap.min.js" type="text/javascript"></script>
 </html>
