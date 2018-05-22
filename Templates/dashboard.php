@@ -110,6 +110,7 @@
                             <div class="numbers">
                                 <p><?=tl("Last price")?></p>
                                 <?=Exchange::bittrexTicker()?>
+                                <p>$ <?=Exchange::getPriceSingleCoin();?></p>
                             </div>
                         </div>
                     </div>
@@ -136,6 +137,7 @@
                             <div class="numbers">
                                 <p><?=tl("Revenue")?></p>
                                 $ <?=Exchange::getBittrexRevenue();?>
+                                <p>&nbsp;</p>
                             </div>
                         </div>
                     </div>
@@ -161,6 +163,15 @@
                             <div class="numbers">
                                 <p><?=tl("Blocks")?></p>
                                 <?=Whitenode::$clientd->getblockcount();?>
+                                <p>
+                                    <?php
+                                        if($blocks < $listNode) {
+                                            ?>&nbsp;<?php
+                                        } else {
+                                            echo '100% synced';
+                                        }
+                                    ?>
+                                </p>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,19 @@ class Exchange extends Whitenode {
 
     static public $externalData;
 
+    static public function getPriceSingleCoin()
+    {
+        if(self::$bittrexTicker == 0)
+        {
+            self::$bittrexTicker = self::bittrexTicker();
+        }
+
+        $bitcoinTotalAmount = (1 * self::$bittrexTicker);
+        $bitcoinPrice = self::getBitcoinPrice();
+
+        return number_format($bitcoinPrice*$bitcoinTotalAmount, 2);
+    }
+
     static public function getBittrexRevenue()
     {
         if(self::$bittrexTicker == 0)
