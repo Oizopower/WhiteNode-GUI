@@ -205,6 +205,7 @@ $(document).ready(function(){
 
     $('#datatable').DataTable( {
         "pageLength": 50,
-        "bLengthChange": false
+        "bLengthChange": false,
+        "aaSorting": []
     });
 });
