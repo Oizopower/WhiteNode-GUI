@@ -6,8 +6,8 @@
                     <h4 class="title">Transactions</h4>
                     <p class="category">view your transactions</p>
                 </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-striped">
+                <div class="content table-responsive ">
+                    <table class="table table-striped" id="datatable">
                         <thead>
                         <th>date</th>
                         <th>account</th>

@@ -30,7 +30,7 @@
     <!--  Icons     -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="/assets/css/themify-icons.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/>
 
     <!--  jQuery UI     -->
     <link href="/assets/css/jquery-ui.min.css" rel="stylesheet">
@@ -88,6 +88,8 @@
 
     <!--  jQuery UI     -->
     <script src="/assets/js/jquery-ui.min.js"  crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
 
     <script src="/assets/js/menu.js"></script>
     <script src="/assets/js/whitenode.js"></script>

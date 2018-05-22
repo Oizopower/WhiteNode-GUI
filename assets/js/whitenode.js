@@ -202,4 +202,9 @@ $(document).ready(function(){
             success:  $success
         });
     }
+
+    $('#datatable').DataTable( {
+        "pageLength": 50,
+        "bLengthChange": false
+    });
 });
