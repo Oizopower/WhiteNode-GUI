@@ -56,10 +56,8 @@ switch($action)
     case "updateGUI":
         $return = shell_exec("cd /var/www/public && /usr/bin/git pull  2>&1");
         if($return) {
-            header("Location: /");
-            exit;
+            $return = array('message' => 'Update is complete', 'finished' => 1, 'action' => 'refresh');
         }
-        $return = array('message' => 'Update is complete', 'finished' => 1, 'action' => 'refresh');
     break;
     case "calculatestake":
         $return = Wallet::calculateStakePercentage($_REQUEST['amount']);
