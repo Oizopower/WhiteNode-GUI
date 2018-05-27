@@ -202,11 +202,11 @@ class Wallet extends Whitenode
             if (isset($request['message'])) {
                 $return = $data;
             } else {
+                sleep(10);
+                Whitenode::service('start');
                 $return = array('encrypted' => true);
             }
         }
-
-
 
         return $return;
     }
