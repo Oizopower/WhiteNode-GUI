@@ -109,6 +109,8 @@ $(document).ready(function(){
                 }
             };
 
+            $(this).closest(".modal-content").find(".modal-body").html("Processing.....");
+
             action($data, $success, 'json');
         }
         e.preventDefault();
