@@ -42,9 +42,7 @@
     float: left;
 }
 
-.discord-widget {
-    width: 260px;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
+.discord-widget img{
+    width: 100%;
+
 }

@@ -52,11 +52,13 @@
             }
         }
         ?>
-
+    <li>
+        <div class="discord-widget">
+            <a href="https://discord.gg/GbpdbMt">
+                <img alt="Logo" src="https://discordapp.com/api/guilds/370118731151441921/widget.png?style=banner2">
+            </a>
+        </div>
+    </li>
 </ul>
-<div class="discord-widget">
-    <a href="https://discord.gg/GbpdbMt">
-        <img alt="Logo" src="https://discordapp.com/api/guilds/370118731151441921/widget.png?style=banner2" width="260px">
-    </a>
-</div>
+
 
