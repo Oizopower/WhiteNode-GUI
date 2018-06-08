@@ -9,7 +9,7 @@ class Whitenode
     static public $lang;
     static public $currentPage;
     static public $rpcSettings;
-    static public $newCoinsYear = 1051200;
+    static public $newCoinsYear = 2628000;
 
     static public function init()
     {
