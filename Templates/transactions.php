@@ -24,7 +24,7 @@
                             {
                                 ?>
                                 <tr>
-                                    <td><?=date("Y-m-d H:i:s",$d['time'])?></td>
+                                    <td><?=date("Y-m-d H:i:s",$d['blocktime'])?></td>
                                     <td><?=(!empty($d['account'])) ? $d['account'] : $d['address'];?></td>
                                     <td><?=$d['amount']?></td>
                                     <td><?=$d['confirmations']?></td>
