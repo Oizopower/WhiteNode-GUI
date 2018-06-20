@@ -12,6 +12,7 @@
                         <th>date</th>
                         <th>account</th>
                         <th>amount</th>
+                        <th>block</th>
                         <th>confirmations</th>
                         <th>category</th>
                         <th></th>
@@ -19,6 +20,7 @@
                         <tbody>
                         <?php
                             $transactions = Wallet::cleanTransactions();
+                            $info = Wallet::$clientd->getinfo();
 
                             foreach($transactions as $d)
                             {
@@ -27,6 +29,7 @@
                                     <td><?=date("Y-m-d H:i:s",$d['blocktime'])?></td>
                                     <td><?=(!empty($d['account'])) ? $d['account'] : $d['address'];?></td>
                                     <td><?=$d['amount']?></td>
+                                    <td><?=$info['blocks']-$d['confirmations']+1?></td>
                                     <td><?=$d['confirmations']?></td>
                                     <td><?=$d['icon']?></td>
                                     <td><a href="<?=Whitenode::$settings['block_explorer']?><?=$d['txid']?>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></td>

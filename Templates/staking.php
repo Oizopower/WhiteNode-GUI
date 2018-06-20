@@ -182,6 +182,7 @@
                         <th><?=tl("date")?></th>
                         <th><?=tl("account")?></th>
                         <th><?=tl("amount")?></th>
+                        <th><?=tl("block")?></th>
                         <th><?=tl("confirmations")?></th>
                         <th><?=tl("category")?></th>
                         <th></th>
@@ -194,6 +195,7 @@
                                 <td><?=date("Y-m-d H:i:s",$d['blocktime'])?></td>
                                 <td><?=(!empty($d['account'])) ? $d['account'] : $d['address'];?></td>
                                 <td><?=$d['amount']?></td>
+                                <td><?=$info['blocks']-$d['confirmations']+1?></td>
                                 <td><?=$d['confirmations']?></td>
                                 <td><?=$d['icon']?></td>
                                 <td><a href="<?=Whitenode::$settings['block_explorer']?><?=$d['txid']?>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></td>
