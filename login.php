@@ -20,7 +20,7 @@
     <link href="/Assets/css/login.css" rel="stylesheet" />
 
 </head>
-<body>
+<body class="bg">
 <div class="wrapper">
     <div class="main-panel-login">
         <div class="content">
@@ -48,7 +48,6 @@
                 </div>
             </div>
         </div>
-        <?php include_once("Snippets/Footer.php") ?>
 
     </div>
 </div>
